@@ -26,7 +26,7 @@ const Terms = () => {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">Terms of Service</h1>
-          <p className="text-muted-foreground">Last updated: December 2024</p>
+          <p className="text-muted-foreground">Last updated: August 2025</p>
         </div>
 
         {/* Content */}
@@ -36,8 +36,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Agreement</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By using DriveIO, you agree to these Terms of Service. If you don't agree with any part 
-                of these terms, please don't use our service.
+                These Terms of Service ("Terms") govern your access to and use of DriveIO’s website, apps, and related services (the "Services"). By accessing or using the Services, you agree to be bound by these Terms.
               </p>
             </section>
 
@@ -47,102 +46,128 @@ const Terms = () => {
                 <p>To use DriveIO, you must:</p>
                 <ul className="space-y-2 pl-6">
                   <li>• Be at least 21 years old</li>
-                  <li>• Have a valid driver's license for at least 2 years</li>
-                  <li>• Pass our verification and background check process</li>
-                  <li>• Maintain valid insurance coverage</li>
-                  <li>• Provide accurate information during registration</li>
+                  <li>• Hold a valid driver’s license for at least 2 years</li>
+                  <li>• Pass our identity verification and background checks</li>
+                  <li>• Maintain valid insurance coverage where required</li>
+                  <li>• Provide accurate and complete information during registration</li>
                 </ul>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Booking and Usage</h2>
+              <h2 className="text-2xl font-semibold mb-4">Bookings and use</h2>
               <div className="space-y-4 text-muted-foreground">
                 <h3 className="text-lg font-medium text-foreground">Reservations</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• All bookings are subject to availability and owner approval</li>
-                  <li>• You must arrive on time for your reservation</li>
-                  <li>• Late arrivals may result in booking cancellation</li>
-                  <li>• Extensions must be approved by the car owner</li>
+                  <li>• Bookings are subject to availability and owner approval</li>
+                  <li>• Arrive on time; late arrivals may be cancelled</li>
+                  <li>• Extensions require owner approval</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-foreground">Vehicle Use</h3>
+                <h3 className="text-lg font-medium text-foreground">Vehicle use</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• Use vehicles only for legal purposes</li>
-                  <li>• No smoking, pets (unless approved), or illegal activities</li>
-                  <li>• Return vehicle in same condition as received</li>
-                  <li>• Report any damage or issues immediately</li>
+                  <li>• Use vehicles only for lawful purposes</li>
+                  <li>• No smoking or illegal activities; pets only if permitted</li>
+                  <li>• Return the vehicle in the same condition and with agreed fuel level</li>
+                  <li>• Report accidents, damage, or issues immediately</li>
                 </ul>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Payment and Fees</h2>
+              <h2 className="text-2xl font-semibold mb-4">Payments and fees</h2>
               <div className="space-y-4 text-muted-foreground">
                 <h3 className="text-lg font-medium text-foreground">Pricing</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• All prices include applicable taxes and fees</li>
-                  <li>• Security deposits may be placed on your payment method</li>
+                  <li>• Prices may include taxes and fees; details shown at checkout</li>
+                  <li>• A security deposit or payment hold may apply</li>
                   <li>• Additional charges may apply for violations or damage</li>
-                  <li>• Fuel costs are included in most bookings</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-foreground">Cancellation Policy</h3>
+                <h3 className="text-lg font-medium text-foreground">Cancellations</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• Free cancellation up to 24 hours before booking</li>
+                  <li>• Free cancellation up to 24 hours before pickup, unless stated otherwise</li>
                   <li>• Cancellations within 24 hours may incur charges</li>
-                  <li>• No-shows result in full booking charge</li>
-                  <li>• Emergency cancellations are handled case-by-case</li>
+                  <li>• No-shows are charged in full</li>
                 </ul>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Insurance and Liability</h2>
+              <h2 className="text-2xl font-semibold mb-4">Insurance and liability</h2>
               <div className="space-y-4 text-muted-foreground">
-                <p>DriveIO provides insurance coverage during your trip, but:</p>
+                <p>Coverage details are provided during checkout and may vary by jurisdiction. You are responsible for complying with insurance requirements.</p>
                 <ul className="space-y-2 pl-6">
-                  <li>• Your personal insurance is primary coverage</li>
-                  <li>• DriveIO insurance applies only during booked periods</li>
-                  <li>• You're responsible for damages up to deductible amounts</li>
-                  <li>• Violations of terms may void insurance coverage</li>
+                  <li>• Your personal auto policy, if any, may be primary</li>
+                  <li>• Platform coverage applies only during booked periods and subject to policy terms</li>
+                  <li>• Deductibles and exclusions may apply</li>
+                  <li>• Violations of these Terms may void coverage</li>
                 </ul>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Prohibited Activities</h2>
+              <h2 className="text-2xl font-semibold mb-4">Prohibited activities</h2>
               <ul className="space-y-3 text-muted-foreground pl-6">
-                <li>• Commercial use (rideshare, delivery, etc.)</li>
-                <li>• Allowing unauthorized drivers</li>
-                <li>• Racing, off-roading, or reckless driving</li>
-                <li>• Transporting illegal substances</li>
-                <li>• Tampering with vehicle tracking or safety systems</li>
+                <li>• Commercial use (rideshare, delivery) unless expressly permitted</li>
+                <li>• Allowing unauthorized drivers or subleasing</li>
+                <li>• Racing, off-roading, reckless or impaired driving</li>
+                <li>• Transporting illegal substances or hazardous materials</li>
+                <li>• Tampering with tracking, safety, or telematics systems</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Account Termination</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                We may suspend or terminate your account for:
-              </p>
+              <h2 className="text-2xl font-semibold mb-4">Account suspension and termination</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">We may suspend or terminate accounts for:</p>
               <ul className="space-y-3 text-muted-foreground pl-6">
-                <li>• Violation of these terms</li>
-                <li>• Fraudulent activity or false information</li>
-                <li>• Damage to vehicles or property</li>
-                <li>• Safety violations or reckless behavior</li>
-                <li>• Non-payment of fees or damages</li>
+                <li>• Violations of these Terms or policies</li>
+                <li>• Fraud, abuse, or unsafe behavior</li>
+                <li>• Non-payment or chargebacks</li>
+                <li>• Legal or safety requirements</li>
               </ul>
             </section>
-
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Contact and Support</h2>
+              <h2 className="text-2xl font-semibold mb-4">Disclaimers</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Questions about these terms? Need help with your account?
+                The Services are provided “as is” and “as available” without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. DriveIO does not guarantee uninterrupted or error-free operation.
               </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Limitation of liability</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                To the maximum extent permitted by law, DriveIO and its affiliates will not be liable for indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Indemnification</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                You agree to indemnify and hold harmless DriveIO, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, liabilities, and expenses arising from your use of the Services or your breach of these Terms.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Governing law</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                These Terms are governed by the laws of the State of Michigan, without regard to conflict of law principles. Venue for disputes will be in the state or federal courts located in Michigan, USA.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Changes</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                We may update these Terms from time to time. Updated terms will be posted with a revised “Last updated” date. Your continued use of the Services constitutes acceptance of the updated Terms.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Contact</h2>
               <div className="mt-4 p-4 bg-muted rounded-lg">
-                <p className="text-foreground font-medium">Email: support@driveio.app</p>
-                <p className="text-muted-foreground">24/7 emergency support available in-app</p>
+                <p className="text-foreground font-medium">Support: support@driveio.app</p>
+                <p className="text-foreground font-medium">Legal: legal@driveio.app</p>
+                <p className="text-muted-foreground">Detroit Metro Area, USA</p>
               </div>
             </section>
 

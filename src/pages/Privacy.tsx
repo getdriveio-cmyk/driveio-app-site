@@ -26,96 +26,140 @@ const Privacy = () => {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">Privacy Policy</h1>
-          <p className="text-muted-foreground">Last updated: December 2024</p>
+          <p className="text-muted-foreground">Last updated: August 2025</p>
         </div>
 
         {/* Content */}
         <div className="prose prose-lg max-w-none">
           <div className="space-y-8 text-foreground">
-            
+
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Overview</h2>
+              <h2 className="text-2xl font-semibold mb-4">Who we are</h2>
               <p className="text-muted-foreground leading-relaxed">
-                At DriveIO, we take your privacy seriously. This Privacy Policy explains how we collect, 
-                use, and protect your information when you use our car sharing platform.
+                DriveIO, Inc. ("DriveIO", "we", "us") operates a trust-first car sharing platform. We are based in the Detroit Metro Area, USA. This policy explains how we collect, use, disclose, and protect information when you use our apps, website, and related services (collectively, the "Services").
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Information We Collect</h2>
+              <h2 className="text-2xl font-semibold mb-4">Information we collect</h2>
               <div className="space-y-4 text-muted-foreground">
-                <h3 className="text-lg font-medium text-foreground">Personal Information</h3>
+                <h3 className="text-lg font-medium text-foreground">Account & identity</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• Name, email address, and phone number</li>
-                  <li>• Driver's license and government-issued ID</li>
-                  <li>• Payment information and billing address</li>
-                  <li>• Profile photo and verification documents</li>
+                  <li>• Name, email, phone number</li>
+                  <li>• Driver’s license details and government ID (for verification)</li>
+                  <li>• Profile photo and verification artifacts</li>
                 </ul>
 
-                <h3 className="text-lg font-medium text-foreground">Usage Information</h3>
+                <h3 className="text-lg font-medium text-foreground">Bookings & usage</h3>
                 <ul className="space-y-2 pl-6">
-                  <li>• App usage and interaction data</li>
-                  <li>• Location information (with your permission)</li>
-                  <li>• Device information and IP address</li>
-                  <li>• Trip history and booking details</li>
+                  <li>• Trip and booking details, messages, and support inquiries</li>
+                  <li>• App and site activity (feature usage, interactions)</li>
+                  <li>• Device data (OS, model), IP address, and diagnostic logs</li>
+                  <li>• Approximate or precise location (with permission)</li>
+                </ul>
+
+                <h3 className="text-lg font-medium text-foreground">Payments</h3>
+                <ul className="space-y-2 pl-6">
+                  <li>• Billing address and transaction metadata</li>
+                  <li>• We use payment processors; we do not store full card numbers</li>
+                </ul>
+
+                <h3 className="text-lg font-medium text-foreground">Cookies & similar</h3>
+                <ul className="space-y-2 pl-6">
+                  <li>• Preferences, analytics, and security cookies (see our <a className="underline" href="/cookies">Cookie Policy</a>)</li>
                 </ul>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">How We Use Your Information</h2>
+              <h2 className="text-2xl font-semibold mb-4">How we use information</h2>
               <ul className="space-y-3 text-muted-foreground pl-6">
-                <li>• To provide and improve our car sharing services</li>
-                <li>• To verify your identity and driver eligibility</li>
-                <li>• To process payments and prevent fraud</li>
-                <li>• To communicate with you about bookings and updates</li>
-                <li>• To comply with legal requirements and safety measures</li>
+                <li>• Provide, personalize, and improve the Services</li>
+                <li>• Verify identity and eligibility; ensure platform and trip safety</li>
+                <li>• Process payments, prevent fraud, and resolve disputes</li>
+                <li>• Communicate about bookings, updates, and support</li>
+                <li>• Comply with legal, tax, and regulatory requirements</li>
+                <li>• Analyze performance and enhance user experience</li>
+              </ul>
+              <div className="mt-4">
+                <h3 className="text-lg font-medium text-foreground mb-2">Legal bases (EEA/UK)</h3>
+                <ul className="space-y-2 text-muted-foreground pl-6">
+                  <li>• Contract (to provide the Services)</li>
+                  <li>• Legitimate interests (safety, security, improvement)</li>
+                  <li>• Consent (where required, e.g., precise location, marketing)</li>
+                  <li>• Legal obligation (compliance and enforcement)</li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">How we share information</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">We do not sell personal information. We share it only as needed:</p>
+              <ul className="space-y-3 text-muted-foreground pl-6">
+                <li>• With vehicle owners and renters to fulfill bookings</li>
+                <li>• With service providers (hosting, payments, ID verification, support)</li>
+                <li>• For safety and legal reasons (law enforcement, legal claims)</li>
+                <li>• In corporate transactions (merger, acquisition) with safeguards</li>
+                <li>• With your direction or consent</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Information Sharing</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                We do not sell your personal information. We may share information only in these limited circumstances:
-              </p>
-              <ul className="space-y-3 text-muted-foreground pl-6">
-                <li>• With car owners when you book their vehicles (limited contact info)</li>
-                <li>• With service providers who help operate our platform</li>
-                <li>• When required by law or to protect safety</li>
-                <li>• With your explicit consent</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">Data Security</h2>
+              <h2 className="text-2xl font-semibold mb-4">Data retention</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We implement industry-standard security measures to protect your information, including 
-                encryption, secure servers, and regular security audits. However, no system is 100% secure, 
-                and we encourage you to protect your account credentials.
+                We retain information for as long as necessary to provide the Services, meet legal obligations, resolve disputes, and enforce agreements. Retention periods vary by data type and legal requirements.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">You have the right to:</p>
+              <h2 className="text-2xl font-semibold mb-4">Your rights</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">Depending on your location, you may have the right to:</p>
               <ul className="space-y-3 text-muted-foreground pl-6">
-                <li>• Access and review your personal information</li>
-                <li>• Correct inaccurate information</li>
-                <li>• Delete your account and associated data</li>
+                <li>• Access, correct, or delete your personal information</li>
+                <li>• Object to or restrict certain processing</li>
                 <li>• Opt out of marketing communications</li>
-                <li>• Request data portability</li>
+                <li>• Receive a portable copy of your data</li>
+                <li>• Appeal decisions and lodge a complaint with a regulator</li>
               </ul>
+              <p className="text-muted-foreground mt-4">
+                California residents: You may have additional rights under the CCPA/CPRA, including the right to know, delete, and correct. We do not sell personal information.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+              <h2 className="text-2xl font-semibold mb-4">International data transfers</h2>
               <p className="text-muted-foreground leading-relaxed">
-                If you have questions about this Privacy Policy or want to exercise your rights, 
-                contact us at:
+                We may process your information in the United States and other countries where we or our service providers operate. Where required, we use appropriate safeguards (such as standard contractual clauses).
               </p>
-              <div className="mt-4 p-4 bg-muted rounded-lg">
-                <p className="text-foreground font-medium">Email: privacy@driveio.app</p>
-                <p className="text-muted-foreground">Response time: Within 48 hours</p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Security</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                We use administrative, technical, and physical safeguards to protect information. No method of transmission or storage is 100% secure. Please use strong passwords and keep your account credentials safe.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Children’s privacy</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Our Services are not intended for individuals under 18. Drivers must be at least 21, as described in our Terms. We do not knowingly collect personal information from children.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Changes to this policy</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                We may update this policy from time to time. We will post the updated version and revise the “Last updated” date. Material changes will be communicated where required.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">Contact us</h2>
+              <div className="mt-2 p-4 bg-muted rounded-lg">
+                <p className="text-foreground font-medium">Privacy: privacy@driveio.app</p>
+                <p className="text-foreground font-medium">Support: support@driveio.app</p>
+                <p className="text-muted-foreground">Detroit Metro Area, USA</p>
               </div>
             </section>
 
