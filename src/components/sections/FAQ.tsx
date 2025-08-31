@@ -1,95 +1,137 @@
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
-} from '@/components/ui/accordion';
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+  keywords: string[];
+}
+
+const faqData: FAQItem[] = [
+  {
+    question: "How does DriveIO car sharing work?",
+    answer: "DriveIO is a car sharing platform where you can book local cars by the day. Browse available vehicles, book online, meet your verified driver for pickup, and return the car when finished. The entire process takes just minutes from start to finish.",
+    keywords: ["how does car sharing work", "car sharing process", "book car online", "car rental process"]
+  },
+  {
+    question: "What do I need to rent a car with DriveIO?",
+    answer: "You'll need a valid driver's license, government ID, and a payment method. We verify your identity to ensure safety for everyone. Drivers must be at least 21 years old with a clean driving record.",
+    keywords: ["what do I need to rent a car", "car rental requirements", "driver license verification", "car rental documents"]
+  },
+  {
+    question: "How much does it cost to rent a car?",
+    answer: "Pricing varies by vehicle and dates. We show all costs upfront including base rate, taxes, fees, and optional insurance. No hidden charges - you'll see the exact total before booking.",
+    keywords: ["how much does car rental cost", "car rental pricing", "car rental fees", "car rental rates"]
+  },
+  {
+    question: "Is insurance included with car rental?",
+    answer: "Basic coverage is included, but you can choose additional protection levels during checkout for extra peace of mind. We offer comprehensive insurance options to protect you during your trip.",
+    keywords: ["car rental insurance", "car insurance coverage", "rental car protection", "car rental safety"]
+  },
+  {
+    question: "Can I rent a car for just a few hours?",
+    answer: "Yes! DriveIO offers flexible rental periods including hourly, daily, and weekly options. Perfect for quick errands, business meetings, or extended trips. Book exactly what you need.",
+    keywords: ["hourly car rental", "short term car rental", "few hours car rental", "flexible car rental"]
+  },
+  {
+    question: "Where can I pick up and return the car?",
+    answer: "Cars are available throughout the Detroit Metro Area with convenient pickup and return locations. We have airport-friendly locations and neighborhood accessibility for your convenience.",
+    keywords: ["car pickup locations", "car return locations", "Detroit car rental locations", "airport car rental"]
+  },
+  {
+    question: "What types of cars are available?",
+    answer: "We offer a variety of vehicles from compact cars to SUVs and luxury options. All cars are regularly maintained and inspected for safety. Choose the perfect car for your needs and budget.",
+    keywords: ["types of rental cars", "car rental options", "rental car selection", "car variety"]
+  },
+  {
+    question: "How far in advance should I book?",
+    answer: "You can book up to 6 months in advance or as little as 1 hour before pickup. Early bookings often get better selection and pricing, while last-minute bookings are perfect for spontaneous trips.",
+    keywords: ["how far in advance book car", "car rental booking time", "advance car booking", "last minute car rental"]
+  },
+  {
+    question: "What if I need to cancel my reservation?",
+    answer: "Free cancellation up to 24 hours before pickup, unless stated otherwise. Later cancellations may incur charges as specified in your booking confirmation. We make it easy to change your plans.",
+    keywords: ["cancel car rental", "car rental cancellation", "change car rental", "modify reservation"]
+  },
+  {
+    question: "Is DriveIO available in other cities?",
+    answer: "Currently, DriveIO is available in the Detroit Metro Area. We're expanding to more cities soon! Sign up for our newsletter to be notified when we launch in your area.",
+    keywords: ["DriveIO other cities", "car sharing expansion", "more locations", "new cities"]
+  },
+  {
+    question: "How do I become a car owner on DriveIO?",
+    answer: "We're currently accepting applications from car owners in the Detroit area. Share your car and earn money while helping others. Contact us at partners@driveio.app to learn more.",
+    keywords: ["become car owner", "share your car", "car sharing partner", "earn money car"]
+  },
+  {
+    question: "What safety measures does DriveIO have?",
+    answer: "Safety is our top priority. We verify all drivers' identities, provide comprehensive insurance options, and maintain strict vehicle standards. Our platform is designed for trust and security.",
+    keywords: ["car rental safety", "DriveIO safety", "secure car rental", "verified drivers"]
+  }
+];
 
 export const FAQ = () => {
-  const faqs = [
-    {
-      question: 'Is DriveIO available on Android?',
-      answer: 'We\'re iOS-first to ensure the best possible experience during our initial launch. Android is definitely on our roadmap and we expect to launch it in the coming months. Join our waitlist to be notified when Android becomes available.'
-    },
-    {
-      question: 'How is pricing calculated?',
-      answer: 'Our pricing is completely transparent. You\'ll see the daily rate, service fee, estimated taxes, and any applicable deposit hold upfront before booking. No hidden fees, no surprises. The final amount is clearly displayed at checkout.'
-    },
-    {
-      question: 'Do I need to verify my ID?',
-      answer: 'Yes, all drivers must complete ID and driver\'s license verification for safety and security. The process is quick and secure, usually taking just a few minutes. Most verifications are approved instantly.'
-    },
-    {
-      question: 'What about insurance?',
-      answer: 'We offer comprehensive trip protection options during checkout. You can choose the coverage level that works best for you, from basic coverage to premium protection plans. All options are clearly explained before you book.'
-    },
-    {
-      question: 'Where does DriveIO operate?',
-      answer: 'We\'re launching in the Detroit metro area first, with airport-friendly pickup locations and convenient neighborhood access. We\'re expanding to more cities soon - stay tuned for updates on new markets.'
-    },
-    {
-      question: 'What payment methods do you accept?',
-      answer: 'We accept Apple Pay, all major credit cards, and debit cards. Apple Pay provides the fastest and most secure checkout experience. A temporary authorization hold may be placed on your payment method for security deposits.'
-    },
-    {
-      question: 'Can I cancel my booking?',
-      answer: 'Yes, you can cancel your booking according to our cancellation policy. Free cancellation is available up to a certain time before your trip starts. Check the specific cancellation terms when booking, as they may vary by car owner.'
-    },
-    {
-      question: 'What if I have issues during my trip?',
-      answer: 'Our 24/7 support team is always available to help with any issues during your trip. You can reach us directly through the app for immediate assistance with roadside support, booking changes, or any other concerns.'
-    }
-  ];
+  const [openItems, setOpenItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    setOpenItems(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
 
   return (
-    <section id="faq" className="py-24 bg-muted/20">
+    <section className="py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Frequently asked questions
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked Questions
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Everything you need to know about DriveIO car sharing.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Everything you need to know about renting cars with DriveIO. Can't find what you're looking for? 
+            <a href="/contact" className="text-primary hover:underline ml-1">Contact us</a>.
           </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="bg-card rounded-2xl shadow-sm border border-border/50 overflow-hidden">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="border-b border-border/50 last:border-b-0"
+        <div className="space-y-4">
+          {faqData.map((item, index) => (
+            <div key={index} className="bg-background rounded-lg border shadow-sm">
+              <button
+                onClick={() => toggleItem(index)}
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
+                aria-expanded={openItems.includes(index)}
+                aria-controls={`faq-${index}`}
               >
-                <AccordionTrigger className="px-8 py-6 text-left hover:bg-muted/50 transition-colors duration-fast [&[data-state=open]]:bg-muted/30">
-                  <span className="text-lg font-semibold text-foreground pr-4">
-                    {faq.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="px-8 pb-6 pt-2 text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                <span className="font-semibold text-lg">{item.question}</span>
+                {openItems.includes(index) ? (
+                  <ChevronUp className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                )}
+              </button>
+              
+              {openItems.includes(index) && (
+                <div 
+                  id={`faq-${index}`}
+                  className="px-6 pb-4 text-muted-foreground leading-relaxed"
+                >
+                  {item.answer}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
-        {/* Contact CTA */}
-        <div className="mt-12 text-center p-8 bg-primary/5 rounded-2xl border border-primary/20">
-          <h3 className="text-xl font-semibold text-foreground mb-2">
-            Still have questions?
-          </h3>
+        <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            Our support team is here to help you get started.
+            Still have questions? We're here to help!
           </p>
           <a 
-            href="mailto:support@driveio.app"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary-hover font-medium transition-colors duration-fast"
+            href="/contact" 
+            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary-hover transition-colors"
           >
-            Contact support →
+            Get in Touch
           </a>
         </div>
       </div>

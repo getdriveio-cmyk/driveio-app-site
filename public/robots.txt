@@ -1,30 +1,34 @@
+# DriveIO Robots.txt - Search Engine Crawling Instructions
+# Last Updated: August 31, 2024
+
+# Allow all major search engines
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://driveio.app/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Allow all major search engines
+# Specific directives for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Baiduspider
 Allow: /
+Crawl-delay: 2
 
 User-agent: YandexBot
 Allow: /
+Crawl-delay: 1
 
 # Block common bad bots and scrapers
 User-agent: AhrefsBot
@@ -45,27 +49,35 @@ Disallow: /
 User-agent: BLEXBot
 Disallow: /
 
-# Block admin and private areas (if they exist in the future)
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: linkdexbot
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# Block admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /config/
+Disallow: /logs/
+Disallow: /temp/
+Disallow: /cache/
 
-# Allow important pages
-Allow: /features
-Allow: /pricing
-Allow: /safety
-Allow: /about
-Allow: /contact
-Allow: /faq
-Allow: /how-it-works
-Allow: /careers
-Allow: /press
-
-# Block common file types that shouldn't be indexed
+# Block common file types that don't need indexing
 Disallow: /*.pdf$
 Disallow: /*.doc$
 Disallow: /*.docx$
@@ -73,3 +85,51 @@ Disallow: /*.xls$
 Disallow: /*.xlsx$
 Disallow: /*.ppt$
 Disallow: /*.pptx$
+Disallow: /*.zip$
+Disallow: /*.rar$
+Disallow: /*.tar$
+Disallow: /*.gz$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.txt$
+Disallow: /*.xml$
+Disallow: /*.json$
+
+# Block query parameters that don't add value
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?msclkid=
+
+# Allow important directories and files
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+Allow: /favicon.ico
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /manifest.json
+Allow: /browserconfig.xml
+
+# Sitemap location
+Sitemap: https://driveio.app/sitemap.xml
+
+# Additional sitemaps for future content
+Sitemap: https://driveio.app/sitemap-blog.xml
+Sitemap: https://driveio.app/sitemap-cities.xml
+Sitemap: https://driveio.app/sitemap-business.xml
+
+# Crawl delay for all bots (default)
+Crawl-delay: 1
+
+# Host directive
+Host: https://driveio.app
+
+# Clean-param directives for tracking parameters
+Clean-param: utm_source&utm_medium&utm_campaign&ref&source&fbclid&gclid&msclkid

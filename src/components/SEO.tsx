@@ -26,7 +26,20 @@ export const SEO = ({
   ogType = 'website',
   twitterCard = 'summary_large_image',
   structuredData,
-  keywords = ['car sharing', 'DriveIO', 'trust-first', 'local cars', 'iOS app'],
+  keywords = [
+    // Primary Keywords (High Volume)
+    'car rental near me', 'rent a car', 'car sharing app', 'rental car app', 'car hire',
+    // Secondary Keywords (Medium Volume)  
+    'hourly car rental', 'daily car rental', 'weekend car rental', 'airport car rental', 'business car rental',
+    // Long-tail Keywords (High Intent)
+    'rent car for day trip', 'car sharing app for business travel', 'rental car app with insurance',
+    'car rental app no deposit', 'rent car hourly', 'trust-first car sharing', 'verified driver car rental',
+    // Local Keywords (Detroit Focus)
+    'Detroit car rental', 'car rental Detroit airport', 'Detroit car sharing', 'Michigan car rental app',
+    'Detroit metro car rental', 'car rental Michigan', 'Detroit area car rental',
+    // Brand Keywords
+    'DriveIO', 'DriveIO app', 'DriveIO car sharing', 'DriveIO rental'
+  ],
   author = 'DriveIO',
   publishedTime,
   modifiedTime,
@@ -229,4 +242,79 @@ export const breadcrumbStructuredData = (breadcrumbs: Array<{name: string, url: 
     "name": crumb.name,
     "item": crumb.url
   }))
+});
+
+export const reviewStructuredData = (reviews: Array<{
+  author: string;
+  rating: number;
+  reviewBody: string;
+  datePublished: string;
+}>) => ({
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "itemReviewed": {
+    "@type": "Service",
+    "name": "DriveIO Car Sharing",
+    "description": "Trust-first car sharing platform"
+  },
+  "ratingValue": reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
+  "reviewCount": reviews.length,
+  "bestRating": 5,
+  "worstRating": 1,
+  "review": reviews.map(review => ({
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": review.author
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": review.rating,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "reviewBody": review.reviewBody,
+    "datePublished": review.datePublished
+  }))
+});
+
+export const videoStructuredData = (videoUrl: string, title: string, description: string, thumbnailUrl: string) => ({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": title,
+  "description": description,
+  "thumbnailUrl": thumbnailUrl,
+  "uploadDate": new Date().toISOString(),
+  "contentUrl": videoUrl,
+  "embedUrl": videoUrl,
+  "publisher": {
+    "@type": "Organization",
+    "name": "DriveIO",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://driveio.app/favicon.ico"
+    }
+  }
+});
+
+export const eventStructuredData = (eventName: string, startDate: string, endDate: string, location: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": eventName,
+  "startDate": startDate,
+  "endDate": endDate,
+  "location": {
+    "@type": "Place",
+    "name": location,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "DriveIO"
+  }
 });

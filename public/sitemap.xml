@@ -1,89 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://driveio.app/</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO - Trust-First Car Sharing Platform</image:title>
+      <image:caption>Book local cars in minutes with transparent pricing and verified drivers</image:caption>
+    </image:image>
   </url>
+
+  <!-- Core Service Pages - High Priority -->
   <url>
     <loc>https://driveio.app/features</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO Features - Fast Booking & Transparent Pricing</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://driveio.app/how-it-works</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>How DriveIO Works - Simple 3-Step Process</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://driveio.app/pricing</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO Pricing - Transparent Rates & No Hidden Fees</image:title>
+    </image:image>
   </url>
+
+  <!-- Trust & Safety Pages - High Priority -->
   <url>
     <loc>https://driveio.app/safety</loc>
-    <lastmod>2024-08-31</lastmod>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO Safety - Verified Drivers & Comprehensive Insurance</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://driveio.app/faq</loc>
-    <lastmod>2024-08-31</lastmod>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO FAQ - Common Questions About Car Sharing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Company Information Pages - Medium Priority -->
+  <url>
+    <loc>https://driveio.app/about</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>About DriveIO - Our Mission & Story</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/contact</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>Contact DriveIO - Get in Touch</image:title>
+    </image:image>
+  </url>
+
+  <!-- Business Development Pages - Medium Priority -->
+  <url>
+    <loc>https://driveio.app/careers</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO Careers - Join Our Team</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/press</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://driveio.app/og-image.svg</image:loc>
+      <image:title>DriveIO Press Kit - Media Resources</image:title>
+    </image:image>
+  </url>
+
+  <!-- Legal & Compliance Pages - Lower Priority -->
+  <url>
+    <loc>https://driveio.app/privacy</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/terms</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/cookies</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/accessibility</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Future Content Pages (Placeholder URLs) -->
+  <url>
+    <loc>https://driveio.app/blog</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/cities/detroit</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/partners</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/support</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- App Download Pages -->
+  <url>
+    <loc>https://driveio.app/download/ios</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://driveio.app/about</loc>
-    <lastmod>2024-08-31</lastmod>
+    <loc>https://driveio.app/download/android</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trust & Safety Sub-pages -->
+  <url>
+    <loc>https://driveio.app/safety/insurance</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://driveio.app/contact</loc>
-    <lastmod>2024-08-31</lastmod>
+    <loc>https://driveio.app/safety/verification</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Business Solutions -->
   <url>
-    <loc>https://driveio.app/careers</loc>
-    <lastmod>2024-08-31</lastmod>
+    <loc>https://driveio.app/business</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/business/corporate</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- User Account Pages -->
   <url>
-    <loc>https://driveio.app/press</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://driveio.app/login</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://driveio.app/signup</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Help & Support -->
+  <url>
+    <loc>https://driveio.app/help</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://driveio.app/privacy</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://driveio.app/help/booking</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://driveio.app/terms</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://driveio.app/help/payment</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://driveio.app/cookies</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://driveio.app/help/insurance</loc>
+    <lastmod>2024-08-31T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://driveio.app/accessibility</loc>
-    <lastmod>2024-08-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
+
 </urlset>
 
 
