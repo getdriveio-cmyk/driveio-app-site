@@ -2,41 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* DriveIO Design System - Trust-first car sharing aesthetic */
 
 @layer base {
   :root {
+    /* Base colors - Clean white/light gray foundation */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 224 15% 20%;
 
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Trust blue for CTAs and key actions */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light blue for subtle actions */
+    --secondary: 217 32% 96%;
+    --secondary-foreground: 217 91% 40%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - For subtle text and backgrounds */
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - DriveIO teal for highlights */
+    --accent: 174 72% 56%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 174 44% 94%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success/trust indicators */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 50% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* Border and inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+
+    /* Radius for modern rounded corners */
+    --radius: 0.75rem;
+
+    /* Gradients for visual appeal */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%), hsl(174 72% 56%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 99%));
+
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 3px 0 hsl(220 43% 11% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(220 43% 11% / 0.1);
+    --shadow-lg: 0 10px 25px -3px hsl(220 43% 11% / 0.1);
+    --shadow-xl: 0 25px 50px -12px hsl(220 43% 11% / 0.25);
+
+    /* Typography scale */
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Animation timings */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +90,58 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode maintains the same trust-focused approach */
+    --background: 224 15% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 224 15% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 224 15% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 217 91% 65%;
+    --primary-foreground: 224 15% 8%;
+    --primary-hover: 217 91% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 224 15% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 224 15% 12%;
+    --muted-foreground: 220 9% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 174 72% 56%;
+    --accent-foreground: 224 15% 8%;
+    --accent-light: 174 44% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 45%;
+    --success-foreground: 224 15% 8%;
+    --success-light: 142 50% 15%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 224 15% 8%;
+
+    --border: 224 15% 20%;
+    --input: 224 15% 15%;
+    --ring: 217 91% 65%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 65%), hsl(174 72% 56%));
+    --gradient-subtle: linear-gradient(180deg, hsl(224 15% 8%), hsl(224 15% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(224 15% 10%), hsl(224 15% 12%));
+
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 25px -3px hsl(0 0% 0% / 0.4);
+    --shadow-xl: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 224 15% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 217 91% 65%;
+    --sidebar-primary-foreground: 224 15% 8%;
+    --sidebar-accent: 224 15% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 224 15% 20%;
+    --sidebar-ring: 217 91% 65%;
   }
 }
 
@@ -100,6 +151,118 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* Smooth scrolling for navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Hero section styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn var(--transition-slow) ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--transition-slow) ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--transition-smooth) ease-out;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Glass morphism for navigation */
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    background: hsla(0, 0%, 100%, 0.8);
+    border-bottom: 1px solid hsla(220, 13%, 91%, 0.5);
+  }
+
+  .dark .glass-nav {
+    background: hsla(224, 15%, 8%, 0.8);
+    border-bottom: 1px solid hsla(224, 15%, 20%, 0.5);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-scale-in {
+    animation: none;
+  }
+  
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
   }
 }
