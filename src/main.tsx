@@ -7,17 +7,28 @@ import './index.css'
 
 // Conditional analytics import with error handling
 const AnalyticsWrapper = () => {
-  try {
+  const [AnalyticsComponent, setAnalyticsComponent] = React.useState<React.ComponentType | null>(null);
+  const [hasError, setHasError] = React.useState(false);
+
+  React.useEffect(() => {
     // Only import analytics in production
-    if (import.meta.env.PROD) {
-      const { Analytics } = require('@vercel/analytics/react');
-      return <Analytics />;
+    if (import.meta.env.PROD && !hasError) {
+      import('@vercel/analytics/react')
+        .then(({ Analytics }) => {
+          setAnalyticsComponent(() => Analytics);
+        })
+        .catch((error) => {
+          console.warn('Analytics failed to load:', error);
+          setHasError(true);
+        });
     }
-    return null;
-  } catch (error) {
-    console.warn('Analytics failed to load:', error);
+  }, [hasError]);
+
+  if (!AnalyticsComponent || hasError) {
     return null;
   }
+
+  return <AnalyticsComponent />;
 };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

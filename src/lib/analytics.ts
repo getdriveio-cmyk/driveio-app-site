@@ -2,17 +2,24 @@
 let analyticsAvailable = false;
 let trackFunction: any = null;
 
-try {
-  const { track } = require('@vercel/analytics');
-  trackFunction = track;
-  analyticsAvailable = true;
-} catch (error) {
-  console.warn('Vercel Analytics not available:', error);
-}
+// Initialize analytics when available
+const initializeAnalytics = async () => {
+  try {
+    const { track } = await import('@vercel/analytics');
+    trackFunction = track;
+    analyticsAvailable = true;
+  } catch (error) {
+    console.warn('Vercel Analytics not available:', error);
+  }
+};
 
 // Safe tracking function with error handling
-const safeTrack = (eventName: string, properties?: Record<string, any>) => {
-  if (!analyticsAvailable || !trackFunction) {
+const safeTrack = async (eventName: string, properties?: Record<string, any>) => {
+  if (!analyticsAvailable) {
+    await initializeAnalytics();
+  }
+  
+  if (!trackFunction) {
     return;
   }
   
