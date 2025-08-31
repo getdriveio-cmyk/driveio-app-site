@@ -24,6 +24,17 @@ export const trackingConfig = {
   snapchatPixelId: 'YOUR_SNAPCHAT_PIXEL_ID', // Replace with your actual Snapchat Pixel ID
 };
 
+// DEMO CONFIGURATION - Uncomment and modify for testing
+// export const trackingConfig = {
+//   facebookPixelId: '123456789012345', // Example Facebook Pixel ID
+//   googleAnalyticsId: 'G-XXXXXXXXXX', // Example GA4 ID
+//   googleAdsId: 'AW-123456789', // Example Google Ads ID
+//   tiktokPixelId: 'ABCDEF123456', // Example TikTok Pixel ID
+//   linkedinInsightId: '123456', // Example LinkedIn ID
+//   twitterPixelId: '1234567890', // Example Twitter Pixel ID
+//   snapchatPixelId: 'ABCDEF123456', // Example Snapchat Pixel ID
+// };
+
 // Environment-specific configuration
 export const getTrackingConfig = () => {
   // You can add environment-specific logic here
@@ -96,4 +107,29 @@ export const trackingProperties = {
   USER_TYPE: 'user_type',
   LOCATION: 'location',
   DEVICE: 'device',
+};
+
+// Helper function to check if tracking is properly configured
+export const isTrackingConfigured = (): boolean => {
+  const hasValidIds = Object.values(trackingConfig).some(
+    id => id && id !== 'YOUR_FACEBOOK_PIXEL_ID' && id !== 'YOUR_GA4_ID' && 
+          id !== 'YOUR_GOOGLE_ADS_ID' && id !== 'YOUR_TIKTOK_PIXEL_ID' &&
+          id !== 'YOUR_LINKEDIN_INSIGHT_ID' && id !== 'YOUR_TWITTER_PIXEL_ID' &&
+          id !== 'YOUR_SNAPCHAT_PIXEL_ID'
+  );
+  
+  return hasValidIds;
+};
+
+// Get configuration status for debugging
+export const getConfigStatus = () => {
+  return {
+    facebook: trackingConfig.facebookPixelId && trackingConfig.facebookPixelId !== 'YOUR_FACEBOOK_PIXEL_ID',
+    googleAnalytics: trackingConfig.googleAnalyticsId && trackingConfig.googleAnalyticsId !== 'YOUR_GA4_ID',
+    googleAds: trackingConfig.googleAdsId && trackingConfig.googleAdsId !== 'YOUR_GOOGLE_ADS_ID',
+    tiktok: trackingConfig.tiktokPixelId && trackingConfig.tiktokPixelId !== 'YOUR_TIKTOK_PIXEL_ID',
+    linkedin: trackingConfig.linkedinInsightId && trackingConfig.linkedinInsightId !== 'YOUR_LINKEDIN_INSIGHT_ID',
+    twitter: trackingConfig.twitterPixelId && trackingConfig.twitterPixelId !== 'YOUR_TWITTER_PIXEL_ID',
+    snapchat: trackingConfig.snapchatPixelId && trackingConfig.snapchatPixelId !== 'YOUR_SNAPCHAT_PIXEL_ID',
+  };
 };

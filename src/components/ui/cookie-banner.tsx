@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from './button';
 import { X } from 'lucide-react';
+import { trackingConfig } from '@/lib/tracking-config';
 
 interface CookiePreferences {
   necessary: boolean;
@@ -40,7 +41,7 @@ export const CookieBanner = () => {
 
   const initializeAdvertisingPixels = () => {
     // Facebook Pixel
-    if (typeof window !== 'undefined' && !window.fbq) {
+    if (typeof window !== 'undefined' && !window.fbq && trackingConfig.facebookPixelId && trackingConfig.facebookPixelId !== 'YOUR_FACEBOOK_PIXEL_ID') {
       const script = document.createElement('script');
       script.innerHTML = `
         !function(f,b,e,v,n,t,s)
@@ -51,17 +52,18 @@ export const CookieBanner = () => {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+        fbq('init', '${trackingConfig.facebookPixelId}');
         fbq('track', 'PageView');
       `;
       document.head.appendChild(script);
+      console.log('Facebook Pixel initialized with ID:', trackingConfig.facebookPixelId);
     }
 
     // Google Ads Pixel
-    if (typeof window !== 'undefined' && !window.gtag) {
+    if (typeof window !== 'undefined' && !window.gtag && trackingConfig.googleAdsId && trackingConfig.googleAdsId !== 'YOUR_GOOGLE_ADS_ID') {
       const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ADS_ID';
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingConfig.googleAdsId}`;
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
@@ -69,35 +71,37 @@ export const CookieBanner = () => {
         window.dataLayer.push(arguments);
       };
       window.gtag('js', new Date());
-      window.gtag('config', 'YOUR_GOOGLE_ADS_ID');
+      window.gtag('config', trackingConfig.googleAdsId);
+      console.log('Google Ads Pixel initialized with ID:', trackingConfig.googleAdsId);
     }
 
     // TikTok Pixel
-    if (typeof window !== 'undefined' && !window.ttq) {
+    if (typeof window !== 'undefined' && !window.ttq && trackingConfig.tiktokPixelId && trackingConfig.tiktokPixelId !== 'YOUR_TIKTOK_PIXEL_ID') {
       const script = document.createElement('script');
       script.innerHTML = `
         !function (w, d, t) {
           w[t] = w[t] || [];
           w[t].push({
-            'ttq.load': 'YOUR_TIKTOK_PIXEL_ID',
+            'ttq.load': '${trackingConfig.tiktokPixelId}',
             'ttq.track': 'PageView'
           });
           var s = d.createElement('script');
-          s.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=YOUR_TIKTOK_PIXEL_ID';
+          s.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=${trackingConfig.tiktokPixelId}';
           s.async = true;
           d.getElementsByTagName('head')[0].appendChild(s);
         }(window, document, 'ttq');
       `;
       document.head.appendChild(script);
+      console.log('TikTok Pixel initialized with ID:', trackingConfig.tiktokPixelId);
     }
   };
 
   const initializeAnalyticsPixels = () => {
     // Google Analytics 4
-    if (typeof window !== 'undefined' && !window.gtag) {
+    if (typeof window !== 'undefined' && !window.gtag && trackingConfig.googleAnalyticsId && trackingConfig.googleAnalyticsId !== 'YOUR_GA4_ID') {
       const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID';
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingConfig.googleAnalyticsId}`;
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
@@ -105,7 +109,8 @@ export const CookieBanner = () => {
         window.dataLayer.push(arguments);
       };
       window.gtag('js', new Date());
-      window.gtag('config', 'YOUR_GA4_ID');
+      window.gtag('config', trackingConfig.googleAnalyticsId);
+      console.log('Google Analytics initialized with ID:', trackingConfig.googleAnalyticsId);
     }
   };
 
@@ -160,6 +165,7 @@ export const CookieBanner = () => {
     }));
   };
 
+  // Don't show banner if no tracking is configured
   if (!showBanner) return null;
 
   return (

@@ -2,7 +2,31 @@
 
 This guide will help you set up the cookie consent banner and tracking pixels for advertising and analytics purposes.
 
-## 🚀 Quick Start
+## 🚀 **QUICK START - Get Your Pixel IDs in 10 Minutes**
+
+### **Step 1: Facebook Pixel (5 minutes)**
+1. **Go to**: [Facebook Business Manager](https://business.facebook.com/)
+2. **Click**: Events Manager → Data Sources → Pixels
+3. **Create**: New pixel or use existing one
+4. **Copy**: Pixel ID (looks like: `123456789012345`)
+5. **Replace**: `YOUR_FACEBOOK_PIXEL_ID` in `src/lib/tracking-config.ts`
+
+### **Step 2: Google Analytics 4 (3 minutes)**
+1. **Go to**: [Google Analytics](https://analytics.google.com/)
+2. **Click**: Admin → Data Streams → Web
+3. **Copy**: Measurement ID (looks like: `G-XXXXXXXXXX`)
+4. **Replace**: `YOUR_GA4_ID` in `src/lib/tracking-config.ts`
+
+### **Step 3: Google Ads (2 minutes)**
+1. **Go to**: [Google Ads](https://ads.google.com/)
+2. **Click**: Tools & Settings → Conversions
+3. **Create**: New conversion action
+4. **Copy**: Conversion ID (looks like: `AW-XXXXXXXXX`)
+5. **Replace**: `YOUR_GOOGLE_ADS_ID` in `src/lib/tracking-config.ts`
+
+---
+
+## 🔧 **Configuration**
 
 ### 1. Configure Tracking Pixel IDs
 
