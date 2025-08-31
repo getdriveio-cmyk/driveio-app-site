@@ -2,14 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
-import { Analytics } from '@vercel/analytics/react'
 import App from './App.tsx'
 import './index.css'
 
-// Error boundary for analytics
+// Conditional analytics import with error handling
 const AnalyticsWrapper = () => {
   try {
-    return <Analytics />;
+    // Only import analytics in production
+    if (import.meta.env.PROD) {
+      const { Analytics } = require('@vercel/analytics/react');
+      return <Analytics />;
+    }
+    return null;
   } catch (error) {
     console.warn('Analytics failed to load:', error);
     return null;

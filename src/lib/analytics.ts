@@ -1,9 +1,23 @@
-import { track } from '@vercel/analytics';
+// Safe analytics wrapper to prevent errors
+let analyticsAvailable = false;
+let trackFunction: any = null;
+
+try {
+  const { track } = require('@vercel/analytics');
+  trackFunction = track;
+  analyticsAvailable = true;
+} catch (error) {
+  console.warn('Vercel Analytics not available:', error);
+}
 
 // Safe tracking function with error handling
 const safeTrack = (eventName: string, properties?: Record<string, any>) => {
+  if (!analyticsAvailable || !trackFunction) {
+    return;
+  }
+  
   try {
-    track(eventName, properties);
+    trackFunction(eventName, properties);
   } catch (error) {
     console.warn('Analytics tracking failed:', error);
   }
@@ -35,16 +49,6 @@ export const analytics = {
     safeTrack('feature_usage', {
       feature: featureName,
       action,
-      timestamp: new Date().toISOString(),
-      ...properties
-    });
-  },
-
-  // Search and Discovery Tracking
-  trackSearch: (searchTerm: string, resultsCount: number, properties?: Record<string, any>) => {
-    safeTrack('search', {
-      term: searchTerm,
-      results_count: resultsCount,
       timestamp: new Date().toISOString(),
       ...properties
     });
@@ -88,26 +92,6 @@ export const analytics = {
       timestamp: new Date().toISOString(),
       ...properties
     });
-  },
-
-  // Social Sharing Tracking
-  trackSocialShare: (platform: string, content: string, properties?: Record<string, any>) => {
-    safeTrack('social_share', {
-      platform,
-      content,
-      timestamp: new Date().toISOString(),
-      ...properties
-    });
-  },
-
-  // Local SEO Tracking
-  trackLocalSearch: (searchType: string, location: string, properties?: Record<string, any>) => {
-    safeTrack('local_search', {
-      search_type: searchType,
-      location,
-      timestamp: new Date().toISOString(),
-      ...properties
-    });
   }
 };
 
@@ -133,7 +117,6 @@ export const trackEvents = {
 
   // FAQ Section
   faqExpand: (question: string) => analytics.trackFeatureUsage('faq', 'expand', { question }),
-  faqSearch: (searchTerm: string) => analytics.trackSearch(searchTerm, 0, { section: 'faq' }),
 
   // Footer
   footerLinkClick: (linkName: string) => analytics.trackButtonClick(`footer_${linkName}`, 'footer'),
@@ -150,30 +133,19 @@ export const trackEvents = {
   appStoreRedirect: () => analytics.trackButtonClick('app_store_redirect', 'download_section'),
   playStoreRedirect: () => analytics.trackButtonClick('play_store_redirect', 'download_section'),
 
-  // Content Engagement
-  contentRead: (contentType: string, contentTitle: string) => analytics.trackFeatureUsage('content', 'read', { type: contentType, title: contentTitle }),
-  contentShare: (contentType: string, platform: string) => analytics.trackSocialShare(platform, contentType),
-  contentDownload: (contentType: string) => analytics.trackFeatureUsage('content', 'download', { type: contentType }),
-
   // Local Search
-  detroitSearch: (searchTerm: string) => analytics.trackLocalSearch('general', 'Detroit', { term: searchTerm }),
-  airportSearch: (searchTerm: string) => analytics.trackLocalSearch('airport', 'Detroit', { term: searchTerm }),
-  businessSearch: (searchTerm: string) => analytics.trackLocalSearch('business', 'Detroit', { term: searchTerm }),
+  detroitSearch: (searchTerm: string) => analytics.trackFeatureUsage('local_search', 'detroit', { term: searchTerm }),
+  airportSearch: (searchTerm: string) => analytics.trackFeatureUsage('local_search', 'airport', { term: searchTerm }),
+  businessSearch: (searchTerm: string) => analytics.trackFeatureUsage('local_search', 'business', { term: searchTerm }),
 
   // Performance Metrics
   pageLoadTime: (loadTime: number) => analytics.trackPerformance('page_load_time', loadTime),
   imageLoadTime: (imageName: string, loadTime: number) => analytics.trackPerformance('image_load_time', loadTime, { image: imageName }),
-  componentRenderTime: (componentName: string, renderTime: number) => analytics.trackPerformance('component_render_time', renderTime, { component: componentName }),
 
   // User Behavior
   scrollDepth: (depth: number) => analytics.trackFeatureUsage('scroll', 'depth', { percentage: depth }),
   timeOnPage: (timeSpent: number) => analytics.trackFeatureUsage('page', 'time_spent', { seconds: timeSpent }),
   returnVisit: () => analytics.trackFeatureUsage('user', 'return_visit'),
-
-  // SEO Performance
-  organicSearch: (searchTerm: string, position: number) => analytics.trackSearch(searchTerm, 1, { source: 'organic', position }),
-  directTraffic: () => analytics.trackFeatureUsage('traffic', 'direct'),
-  referralTraffic: (source: string) => analytics.trackFeatureUsage('traffic', 'referral', { source }),
 
   // Business Metrics
   leadGeneration: (leadType: string) => analytics.trackConversion('lead_generation', 1, { type: leadType }),
