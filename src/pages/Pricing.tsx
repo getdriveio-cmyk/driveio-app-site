@@ -45,6 +45,24 @@ const Pricing = () => {
                 <li>Launch promotions — join TestFlight for early discounts</li>
               </ul>
             </div>
+
+            <div className="mt-10">
+              <h2 className="text-xl font-semibold mb-4">Pricing FAQ</h2>
+              <div className="space-y-4">
+                <div className="p-4 rounded-lg border">
+                  <h3 className="font-medium mb-2">When do I pay?</h3>
+                  <p className="text-muted-foreground text-sm">Payment is processed at booking. Deposits are held until after your trip.</p>
+                </div>
+                <div className="p-4 rounded-lg border">
+                  <h3 className="font-medium mb-2">Can I cancel?</h3>
+                  <p className="text-muted-foreground text-sm">Free cancellation up to 24 hours before pickup. Later cancellations may incur charges.</p>
+                </div>
+                <div className="p-4 rounded-lg border">
+                  <h3 className="font-medium mb-2">What's included?</h3>
+                  <p className="text-muted-foreground text-sm">Base rate, taxes, and fees. Insurance is optional and priced separately.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

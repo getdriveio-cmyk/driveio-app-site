@@ -18,10 +18,10 @@ const Safety = () => {
               We’re a trust-first platform. From the moment you sign up to the moment you hand back the keys, we design safety into every step.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-8 mb-10">
               <div>
                 <h2 className="text-xl font-semibold mb-2">Identity verification</h2>
-                <p className="text-muted-foreground">We verify driver’s licenses and government IDs to help ensure every trip is taken by the right person.</p>
+                <p className="text-muted-foreground">We verify driver's licenses and government IDs to help ensure every trip is taken by the right person.</p>
               </div>
               <div>
                 <h2 className="text-xl font-semibold mb-2">Insurance options</h2>
@@ -35,6 +35,10 @@ const Safety = () => {
                 <h2 className="text-xl font-semibold mb-2">Support</h2>
                 <p className="text-muted-foreground">Help when you need it. Reach out at <a className="underline" href="mailto:support@driveio.app">support@driveio.app</a>.</p>
               </div>
+            </div>
+            <div className="p-6 rounded-xl border bg-success-light">
+              <h2 className="text-xl font-semibold text-success mb-2">Trust & Safety</h2>
+              <p className="text-muted-foreground">Every feature is designed with your safety in mind. From verification to insurance, we're building the most trusted car sharing experience.</p>
             </div>
           </div>
         </section>
