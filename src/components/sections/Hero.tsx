@@ -39,7 +39,7 @@ export const Hero = () => {
           </Badge>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline - Following UX best practices: clear, concise, 5-7 words */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
           Book Local Cars in
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
@@ -47,20 +47,20 @@ export const Hero = () => {
           </span>
         </h1>
 
-        {/* Subheadline */}
+        {/* Subheadline - Following UX best practices: concise, under 20 words */}
         <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
           DriveIO connects you with verified drivers and transparent pricing. 
           No hidden fees, no surprises. Available in Detroit Metro Area.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - Following UX best practices: actionable labels, limited to 2 buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
             onClick={handleCTAClick}
           >
-            Get Started Today
+            Start Booking Now
           </Button>
           <Button 
             variant="outline" 
@@ -72,7 +72,7 @@ export const Hero = () => {
           </Button>
         </div>
 
-        {/* App Screenshot & Download */}
+        {/* App Screenshot & Download - Simplified without floating card */}
         <div className="relative max-w-md mx-auto">
           {/* Phone Mockup */}
           <div className="relative mx-auto w-64 h-96">
@@ -91,15 +91,6 @@ export const Hero = () => {
               
               {/* Home Button */}
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-600 rounded-full"></div>
-            </div>
-
-            {/* Floating Info Card */}
-            <div className="absolute -right-4 top-8 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-2xl border border-white/20">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">⚡</div>
-                <div className="text-xs font-semibold text-gray-700">Fast Booking</div>
-                <div className="text-xs text-gray-500">2 min avg</div>
-              </div>
             </div>
           </div>
 
