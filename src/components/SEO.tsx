@@ -164,7 +164,8 @@ export const organizationStructuredData = {
     "availableLanguage": "English"
   },
   "sameAs": [
-    "https://twitter.com/driveio_app",
+    "https://x.com/GetDriveIO",
+    "https://www.instagram.com/getdriveio/",
     "https://linkedin.com/company/driveio"
   ]
 };

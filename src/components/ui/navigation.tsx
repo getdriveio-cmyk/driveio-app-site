@@ -65,7 +65,7 @@ export const Navigation = () => {
             <Button 
               variant="outline" 
               size="sm"
-              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open('https://testflight.apple.com/join/driveio', '_blank', 'noopener,noreferrer')}
               className="flex items-center gap-2"
             >
               Join TestFlight
@@ -73,7 +73,7 @@ export const Navigation = () => {
             </Button>
             <Button 
               size="sm"
-              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open('https://apps.apple.com/app/driveio', '_blank', 'noopener,noreferrer')}
               className="flex items-center gap-2 bg-primary hover:bg-primary-hover"
             >
               Download App
@@ -112,7 +112,7 @@ export const Navigation = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open('https://testflight.apple.com/join/driveio', '_blank', 'noopener,noreferrer')}
                   className="flex items-center justify-center gap-2 w-full"
                 >
                   Join TestFlight
@@ -120,7 +120,7 @@ export const Navigation = () => {
                 </Button>
                 <Button 
                   size="sm"
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open('https://apps.apple.com/app/driveio', '_blank', 'noopener,noreferrer')}
                   className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-hover"
                 >
                   Download App

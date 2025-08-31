@@ -32,9 +32,9 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/GetDriveIO', label: 'X (Twitter)' },
+    { icon: Instagram, href: 'https://www.instagram.com/getdriveio/', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/driveio', label: 'LinkedIn' },
   ];
 
   const handleAnchor = (href: string) => {
@@ -183,7 +183,7 @@ export const Footer = () => {
         <div className="mt-8 text-center">
           <p className="text-xs text-muted-foreground">
             We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.{' '}
-            <a href="#" className="text-primary hover:underline">
+            <a href="/cookies" className="text-primary hover:underline">
               Learn more
             </a>
           </p>

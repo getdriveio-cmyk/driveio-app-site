@@ -24,7 +24,7 @@ export const FinalCTA = () => {
           <Button 
             size="lg" 
             className="h-16 px-10 text-lg bg-primary hover:bg-primary-hover shadow-xl hover:shadow-2xl transition-all duration-smooth"
-            onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+            onClick={() => window.open('https://apps.apple.com/app/driveio', '_blank', 'noopener,noreferrer')}
           >
             <div className="flex items-center gap-4">
               <div className="flex flex-col items-start">
@@ -39,11 +39,11 @@ export const FinalCTA = () => {
             variant="outline" 
             size="lg"
             className="h-16 px-10 text-lg border-2 border-primary/30 hover:bg-primary/5 transition-all duration-smooth"
-            onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+            onClick={() => window.open('https://testflight.apple.com/join/driveio', '_blank', 'noopener,noreferrer')}
           >
             <div className="flex items-center gap-3">
               <span className="font-semibold">Join TestFlight Beta</span>
-              <ExternalLink className="h-5 w-5" />
+              <ExternalLink className="h-3 w-3" />
             </div>
           </Button>
 
