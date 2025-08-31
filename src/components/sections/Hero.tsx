@@ -1,21 +1,23 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { trackEvents } from '@/lib/analytics';
 import appScreen1 from '@/assets/app-screen-1.png';
 
 export const Hero = () => {
   const handleCTAClick = () => {
-    trackEvents.heroCTAClick();
+    // Analytics tracking temporarily disabled
+    // trackEvents.heroCTAClick();
     // Add your CTA logic here
   };
 
   const handleDownloadClick = () => {
-    trackEvents.heroDownloadClick();
+    // Analytics tracking temporarily disabled
+    // trackEvents.heroDownloadClick();
     // Add your download logic here
   };
 
   const handleLearnMoreClick = () => {
-    trackEvents.heroLearnMoreClick();
+    // Analytics tracking temporarily disabled
+    // trackEvents.heroLearnMoreClick();
     // Add your learn more logic here
   };
 
