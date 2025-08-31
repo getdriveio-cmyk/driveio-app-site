@@ -1,23 +1,24 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import appScreen1 from '@/assets/app-screen-1.png';
+import { trackingEvents } from '@/lib/tracking';
 
 export const Hero = () => {
   const handleCTAClick = () => {
-    // Analytics tracking temporarily disabled
-    // trackEvents.heroCTAClick();
+    // Track CTA click for advertising and analytics
+    trackingEvents.heroCTAClick();
     // Add your CTA logic here
   };
 
   const handleDownloadClick = () => {
-    // Analytics tracking temporarily disabled
-    // trackEvents.heroDownloadClick();
+    // Track download click for advertising and analytics
+    trackingEvents.downloadAppClick();
     // Add your download logic here
   };
 
   const handleLearnMoreClick = () => {
-    // Analytics tracking temporarily disabled
-    // trackEvents.heroLearnMoreClick();
+    // Track learn more click for advertising and analytics
+    trackingEvents.learnMoreClick();
     // Add your learn more logic here
   };
 
