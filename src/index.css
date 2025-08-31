@@ -17,10 +17,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 15% 20%;
 
-    /* Primary - Trust blue for CTAs and key actions */
-    --primary: 217 91% 60%;
+    /* Primary - Teal to match brand logo */
+    --primary: 184 74% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 91% 55%;
+    --primary-hover: 184 74% 40%;
 
     /* Secondary - Light blue for subtle actions */
     --secondary: 217 32% 96%;
@@ -30,10 +30,10 @@
     --muted: 220 13% 96%;
     --muted-foreground: 220 9% 46%;
 
-    /* Accent - DriveIO teal for highlights */
-    --accent: 174 72% 56%;
+    /* Accent - Lighter cyan-teal for highlights */
+    --accent: 172 65% 52%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 174 44% 94%;
+    --accent-light: 172 44% 94%;
 
     /* Success/trust indicators */
     --success: 142 76% 36%;
@@ -47,13 +47,13 @@
     /* Border and inputs */
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --ring: 184 74% 45%;
 
     /* Radius for modern rounded corners */
     --radius: 0.75rem;
 
     /* Gradients for visual appeal */
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%), hsl(174 72% 56%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 99%));
 
@@ -100,9 +100,9 @@
     --popover: 224 15% 8%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 217 91% 65%;
+    --primary: 184 74% 60%;
     --primary-foreground: 224 15% 8%;
-    --primary-hover: 217 91% 60%;
+    --primary-hover: 184 74% 55%;
 
     --secondary: 224 15% 15%;
     --secondary-foreground: 0 0% 95%;
@@ -110,9 +110,9 @@
     --muted: 224 15% 12%;
     --muted-foreground: 220 9% 60%;
 
-    --accent: 174 72% 56%;
+    --accent: 172 65% 56%;
     --accent-foreground: 224 15% 8%;
-    --accent-light: 174 44% 15%;
+    --accent-light: 172 44% 15%;
 
     --success: 142 76% 45%;
     --success-foreground: 224 15% 8%;
@@ -123,9 +123,9 @@
 
     --border: 224 15% 20%;
     --input: 224 15% 15%;
-    --ring: 217 91% 65%;
+    --ring: 184 74% 60%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 65%), hsl(174 72% 56%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-subtle: linear-gradient(180deg, hsl(224 15% 8%), hsl(224 15% 10%));
     --gradient-card: linear-gradient(145deg, hsl(224 15% 10%), hsl(224 15% 12%));
 
