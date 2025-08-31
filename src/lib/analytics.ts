@@ -1,10 +1,19 @@
 import { track } from '@vercel/analytics';
 
+// Safe tracking function with error handling
+const safeTrack = (eventName: string, properties?: Record<string, any>) => {
+  try {
+    track(eventName, properties);
+  } catch (error) {
+    console.warn('Analytics tracking failed:', error);
+  }
+};
+
 // Analytics Configuration for DriveIO
 export const analytics = {
   // Page View Tracking
   trackPageView: (pageName: string, properties?: Record<string, any>) => {
-    track('page_view', {
+    safeTrack('page_view', {
       page: pageName,
       timestamp: new Date().toISOString(),
       ...properties
@@ -13,7 +22,7 @@ export const analytics = {
 
   // User Engagement Tracking
   trackButtonClick: (buttonName: string, location: string, properties?: Record<string, any>) => {
-    track('button_click', {
+    safeTrack('button_click', {
       button: buttonName,
       location,
       timestamp: new Date().toISOString(),
@@ -23,7 +32,7 @@ export const analytics = {
 
   // Feature Usage Tracking
   trackFeatureUsage: (featureName: string, action: string, properties?: Record<string, any>) => {
-    track('feature_usage', {
+    safeTrack('feature_usage', {
       feature: featureName,
       action,
       timestamp: new Date().toISOString(),
@@ -33,7 +42,7 @@ export const analytics = {
 
   // Search and Discovery Tracking
   trackSearch: (searchTerm: string, resultsCount: number, properties?: Record<string, any>) => {
-    track('search', {
+    safeTrack('search', {
       term: searchTerm,
       results_count: resultsCount,
       timestamp: new Date().toISOString(),
@@ -43,7 +52,7 @@ export const analytics = {
 
   // Conversion Tracking
   trackConversion: (conversionType: string, value?: number, properties?: Record<string, any>) => {
-    track('conversion', {
+    safeTrack('conversion', {
       type: conversionType,
       value,
       timestamp: new Date().toISOString(),
@@ -53,7 +62,7 @@ export const analytics = {
 
   // User Journey Tracking
   trackUserJourney: (step: string, stepNumber: number, properties?: Record<string, any>) => {
-    track('user_journey', {
+    safeTrack('user_journey', {
       step,
       step_number: stepNumber,
       timestamp: new Date().toISOString(),
@@ -63,7 +72,7 @@ export const analytics = {
 
   // Error Tracking
   trackError: (errorType: string, errorMessage: string, properties?: Record<string, any>) => {
-    track('error', {
+    safeTrack('error', {
       type: errorType,
       message: errorMessage,
       timestamp: new Date().toISOString(),
@@ -73,7 +82,7 @@ export const analytics = {
 
   // Performance Tracking
   trackPerformance: (metric: string, value: number, properties?: Record<string, any>) => {
-    track('performance', {
+    safeTrack('performance', {
       metric,
       value,
       timestamp: new Date().toISOString(),
@@ -83,7 +92,7 @@ export const analytics = {
 
   // Social Sharing Tracking
   trackSocialShare: (platform: string, content: string, properties?: Record<string, any>) => {
-    track('social_share', {
+    safeTrack('social_share', {
       platform,
       content,
       timestamp: new Date().toISOString(),
@@ -93,7 +102,7 @@ export const analytics = {
 
   // Local SEO Tracking
   trackLocalSearch: (searchType: string, location: string, properties?: Record<string, any>) => {
-    track('local_search', {
+    safeTrack('local_search', {
       search_type: searchType,
       location,
       timestamp: new Date().toISOString(),

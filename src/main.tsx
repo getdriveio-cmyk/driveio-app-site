@@ -6,12 +6,22 @@ import { Analytics } from '@vercel/analytics/react'
 import App from './App.tsx'
 import './index.css'
 
+// Error boundary for analytics
+const AnalyticsWrapper = () => {
+  try {
+    return <Analytics />;
+  } catch (error) {
+    console.warn('Analytics failed to load:', error);
+    return null;
+  }
+};
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
         <App />
-        <Analytics />
+        <AnalyticsWrapper />
       </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>,
