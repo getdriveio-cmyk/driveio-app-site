@@ -1,10 +1,7 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+
 const Index = lazy(() => import("./pages/Index"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -21,39 +18,31 @@ const FAQPage = lazy(() => import("./pages/FAQPage"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<div className="p-6">Loading…</div>}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/safety" element={<Safety />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/press" element={<PressKit />} />
-              <Route path="/cookies" element={<CookiePolicy />} />
-              <Route path="/accessibility" element={<Accessibility />} />
-              <Route path="/features" element={<FeaturesPage />} />
-              <Route path="/how-it-works" element={<HowItWorksPage />} />
-              <Route path="/faq" element={<FAQPage />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </HelmetProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <BrowserRouter>
+      <Suspense fallback={<div className="p-6">Loading…</div>}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/press" element={<PressKit />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  </HelmetProvider>
 );
 
 export default App;
