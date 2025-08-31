@@ -1,9 +1,14 @@
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Privacy Policy — DriveIO</title>
+        <meta name="description" content="Learn how DriveIO collects, uses, and protects your information." />
+      </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Back Button */}

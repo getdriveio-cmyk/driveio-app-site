@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from './button';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import driveioLogo from '@/assets/driveio-logo.png';
@@ -7,17 +8,22 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Features', href: '#features' },
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Features', href: '/features' },
+    { label: 'How it works', href: '/how-it-works' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Contact', href: '/contact' },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const navigateTo = (href: string) => {
+    if (href.startsWith('/')) {
+      window.location.href = href;
       setIsOpen(false);
+    } else if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+      }
     }
   };
 
@@ -27,23 +33,28 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
-              src={driveioLogo} 
-              alt="DriveIO" 
-              className="h-8 w-auto"
-            />
+            <Link to="/" aria-label="DriveIO home">
+              <img 
+                src={driveioLogo} 
+                alt="DriveIO" 
+                className="h-8 w-auto"
+                width="128"
+                height="32"
+                decoding="async"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                to={item.href}
                 className="text-foreground hover:text-primary transition-colors duration-fast font-medium"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -52,7 +63,7 @@ export const Navigation = () => {
             <Button 
               variant="outline" 
               size="sm"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
               className="flex items-center gap-2"
             >
               Join TestFlight
@@ -60,7 +71,7 @@ export const Navigation = () => {
             </Button>
             <Button 
               size="sm"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
               className="flex items-center gap-2 bg-primary hover:bg-primary-hover"
             >
               Download App
@@ -86,19 +97,20 @@ export const Navigation = () => {
           <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-fast"
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-fast"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
               <div className="flex flex-col gap-2 px-3 pt-2">
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => window.open('#', '_blank')}
+                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                   className="flex items-center justify-center gap-2 w-full"
                 >
                   Join TestFlight
@@ -106,7 +118,7 @@ export const Navigation = () => {
                 </Button>
                 <Button 
                   size="sm"
-                  onClick={() => window.open('#', '_blank')}
+                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                   className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-hover"
                 >
                   Download App

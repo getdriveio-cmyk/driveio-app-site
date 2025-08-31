@@ -1,10 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Shield, CreditCard, UserCheck, QrCode } from 'lucide-react';
-import { useState } from 'react';
+import { ExternalLink, Shield, CreditCard, UserCheck } from 'lucide-react';
 
 export const Hero = () => {
-  const [showQR, setShowQR] = useState(false);
 
   const trustBadges = [
     { icon: UserCheck, text: 'Verified ID & License' },
@@ -24,16 +22,15 @@ export const Hero = () => {
           
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Book local cars
+            Get on the road faster
             <span className="block text-transparent bg-gradient-to-r from-primary to-accent bg-clip-text">
-              in minutes.
+              with transparent, trusted car sharing.
             </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subheading (benefit-first) */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            DriveIO is the trust-first car sharing app—fast booking, 
-            clear pricing, and verified drivers.
+            Book in minutes. See all fees upfront. Drive with verified drivers and secure payments.
           </p>
 
           {/* iOS-only badge */}
@@ -41,16 +38,16 @@ export const Hero = () => {
             iOS-only for now. Android coming soon.
           </Badge>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons (primary + subtle secondary) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Button 
               size="lg" 
               className="h-14 px-8 text-lg bg-primary hover:bg-primary-hover shadow-lg hover:shadow-xl transition-all duration-smooth"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
             >
               <div className="flex items-center gap-3">
                 <div className="flex flex-col items-start">
-                  <span className="text-xs opacity-90">Download on the</span>
+                  <span className="text-xs opacity-90">Get the app</span>
                   <span className="font-semibold">App Store</span>
                 </div>
                 <ExternalLink className="h-5 w-5" />
@@ -61,32 +58,13 @@ export const Hero = () => {
               variant="outline" 
               size="lg"
               className="h-14 px-8 text-lg border-2 hover:bg-muted transition-all duration-smooth"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
             >
-              Join TestFlight Beta
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="lg"
-              className="h-14 px-6"
-              onClick={() => setShowQR(!showQR)}
-            >
-              <QrCode className="h-6 w-6" />
+              Join TestFlight (beta)
             </Button>
           </div>
 
-          {/* QR Code Modal (Simple) */}
-          {showQR && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm" onClick={() => setShowQR(false)}>
-              <div className="bg-card p-6 rounded-lg shadow-xl border">
-                <div className="w-48 h-48 bg-muted rounded-lg flex items-center justify-center mb-4">
-                  <QrCode className="h-24 w-24 text-muted-foreground" />
-                </div>
-                <p className="text-sm text-muted-foreground text-center">Scan to download DriveIO</p>
-              </div>
-            </div>
-          )}
+          
 
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
@@ -122,24 +100,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Disabled Google Play Badge */}
-          <div className="mt-8 flex justify-center">
-            <div className="opacity-40 cursor-not-allowed">
-              <Button 
-                variant="outline" 
-                disabled
-                className="h-12 px-6 text-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="flex flex-col items-start">
-                    <span className="text-xs">Get it on</span>
-                    <span className="font-semibold">Google Play</span>
-                  </div>
-                  <span className="text-xs bg-muted px-2 py-1 rounded">Coming Soon</span>
-                </div>
-              </Button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>

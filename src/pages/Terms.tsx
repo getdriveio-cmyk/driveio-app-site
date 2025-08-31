@@ -1,9 +1,14 @@
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Terms of Service — DriveIO</title>
+        <meta name="description" content="Read the terms and conditions for using DriveIO." />
+      </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Back Button */}

@@ -6,28 +6,29 @@ import {
   Instagram, 
   Linkedin 
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import driveioLogo from '@/assets/driveio-logo.png';
 
 export const Footer = () => {
   const productLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'How it Works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#' },
-    { label: 'Safety', href: '#' },
+    { label: 'Features', href: '/features' },
+    { label: 'How it Works', href: '/how-it-works' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Safety', href: '/safety' },
   ];
 
   const companyLinks = [
-    { label: 'About Us', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Press Kit', href: '#' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Press Kit', href: '/press' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const legalLinks = [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Accessibility', href: '#' },
+    { label: 'Cookie Policy', href: '/cookies' },
+    { label: 'Accessibility', href: '/accessibility' },
   ];
 
   const socialLinks = [
@@ -36,12 +37,10 @@ export const Footer = () => {
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
   ];
 
-  const scrollToSection = (href: string) => {
+  const handleAnchor = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -59,6 +58,9 @@ export const Footer = () => {
                 src={driveioLogo} 
                 alt="DriveIO" 
                 className="h-8 w-auto"
+                width="128"
+                height="32"
+                decoding="async"
               />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -88,12 +90,21 @@ export const Footer = () => {
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
-                  >
-                    {link.label}
-                  </button>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => handleAnchor(link.href)}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -105,12 +116,21 @@ export const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
-                  >
-                    {link.label}
-                  </button>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => handleAnchor(link.href)}
+                      className="text-muted-foreground hover:text-primary transition-colors duration-fast text-sm"
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
