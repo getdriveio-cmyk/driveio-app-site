@@ -17,10 +17,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 15% 20%;
 
-    /* Primary - Teal to match brand logo */
-    --primary: 184 74% 45%;
+    /* Primary - sampled teal from logo */
+    --primary: 180 87% 40%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 184 74% 40%;
+    --primary-hover: 180 87% 35%;
 
     /* Secondary - Light blue for subtle actions */
     --secondary: 217 32% 96%;
@@ -30,10 +30,10 @@
     --muted: 220 13% 96%;
     --muted-foreground: 220 9% 46%;
 
-    /* Accent - Lighter cyan-teal for highlights */
-    --accent: 172 65% 52%;
+    /* Accent - cyan-teal highlight from logo edge glow */
+    --accent: 174 66% 51%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 172 44% 94%;
+    --accent-light: 174 44% 94%;
 
     /* Success/trust indicators */
     --success: 142 76% 36%;
@@ -47,7 +47,7 @@
     /* Border and inputs */
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 184 74% 45%;
+    --ring: 180 87% 40%;
 
     /* Radius for modern rounded corners */
     --radius: 0.75rem;
@@ -100,9 +100,9 @@
     --popover: 224 15% 8%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 184 74% 60%;
+    --primary: 180 87% 55%;
     --primary-foreground: 224 15% 8%;
-    --primary-hover: 184 74% 55%;
+    --primary-hover: 180 87% 50%;
 
     --secondary: 224 15% 15%;
     --secondary-foreground: 0 0% 95%;
@@ -110,9 +110,9 @@
     --muted: 224 15% 12%;
     --muted-foreground: 220 9% 60%;
 
-    --accent: 172 65% 56%;
+    --accent: 174 66% 56%;
     --accent-foreground: 224 15% 8%;
-    --accent-light: 172 44% 15%;
+    --accent-light: 174 44% 15%;
 
     --success: 142 76% 45%;
     --success-foreground: 224 15% 8%;
@@ -123,7 +123,7 @@
 
     --border: 224 15% 20%;
     --input: 224 15% 15%;
-    --ring: 184 74% 60%;
+    --ring: 180 87% 55%;
 
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-subtle: linear-gradient(180deg, hsl(224 15% 8%), hsl(224 15% 10%));
