@@ -10,6 +10,8 @@ export const Navigation = () => {
   const navItems = [
     { label: 'Features', href: '/features' },
     { label: 'How it works', href: '/how-it-works' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Safety', href: '/safety' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ];
