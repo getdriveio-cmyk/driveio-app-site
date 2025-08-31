@@ -1,16 +1,75 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://driveio.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
+User-agent: Slurp
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: DuckDuckBot
 Allow: /
 
-User-agent: *
+User-agent: Baiduspider
 Allow: /
 
-Sitemap: https://driveio.app/sitemap.xml
+User-agent: YandexBot
+Allow: /
+
+# Block common bad bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: Screaming
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Block admin and private areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Allow important pages
+Allow: /features
+Allow: /pricing
+Allow: /safety
+Allow: /about
+Allow: /contact
+Allow: /faq
+Allow: /how-it-works
+Allow: /careers
+Allow: /press
+
+# Block common file types that shouldn't be indexed
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+Disallow: /*.ppt$
+Disallow: /*.pptx$

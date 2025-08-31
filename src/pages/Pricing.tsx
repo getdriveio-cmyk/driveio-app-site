@@ -1,21 +1,57 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Navigation } from '@/components/ui/navigation';
 import { Footer } from '@/components/sections/Footer';
 
 const Pricing = () => {
+  const pricingStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "DriveIO Car Sharing",
+    "description": "Trust-first car sharing with transparent pricing",
+    "provider": {
+      "@type": "Organization",
+      "name": "DriveIO"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Detroit Metro Area"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Car Sharing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Daily Car Rental",
+            "description": "Base rate with transparent fees and insurance options"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "description": "Transparent pricing with all fees shown upfront"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen">
-      <Helmet>
-        <title>Pricing — DriveIO</title>
-        <meta name="description" content="Transparent pricing with all fees upfront. No surprises—just fair rates and flexible insurance options." />
-      </Helmet>
+      <SEO 
+        title="Pricing"
+        description="Transparent pricing with all fees upfront. No surprises—just fair rates and flexible insurance options."
+        canonical="https://driveio.app/pricing"
+        structuredData={pricingStructuredData}
+        keywords={['car sharing pricing', 'transparent pricing', 'no hidden fees', 'DriveIO pricing', 'car rental rates']}
+      />
       <Navigation />
       <main>
         <section className="py-24 bg-background">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold mb-6">Pricing</h1>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              We show you all costs upfront—rental rate, taxes, fees, and any deposit hold—so you always know exactly what you’ll pay.
+              We show you all costs upfront—rental rate, taxes, fees, and any deposit hold—so you always know exactly what you'll pay.
             </p>
 
             <div className="grid gap-8 md:grid-cols-2">
@@ -55,7 +91,7 @@ const Pricing = () => {
                 </div>
                 <div className="p-4 rounded-lg border">
                   <h3 className="font-medium mb-2">Can I cancel?</h3>
-                  <p className="text-muted-foreground text-sm">Free cancellation up to 24 hours before pickup. Later cancellations may incur charges.</p>
+                  <p className="text-muted-foreground text-sm">Free cancellation up to 24 hours before pickup, unless stated otherwise.</p>
                 </div>
                 <div className="p-4 rounded-lg border">
                   <h3 className="font-medium mb-2">What's included?</h3>

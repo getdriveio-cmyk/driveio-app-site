@@ -1,14 +1,41 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Navigation } from '@/components/ui/navigation';
 import { Footer } from '@/components/sections/Footer';
 
 const About = () => {
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About DriveIO",
+    "description": "Learn about DriveIO's mission to build the most trusted car sharing experience",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "DriveIO",
+      "description": "DriveIO exists to make local mobility simple and trustworthy",
+      "foundingDate": "2024",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Detroit",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "support@driveio.app"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen">
-      <Helmet>
-        <title>About DriveIO — Our mission and story</title>
-        <meta name="description" content="DriveIO is a trust-first car sharing platform built around transparent pricing, verified drivers, and delightful booking." />
-      </Helmet>
+      <SEO 
+        title="About Us"
+        description="DriveIO is a trust-first car sharing platform built around transparent pricing, verified drivers, and delightful booking."
+        canonical="https://driveio.app/about"
+        structuredData={aboutStructuredData}
+        keywords={['about DriveIO', 'car sharing company', 'trust-first platform', 'Detroit car sharing', 'DriveIO mission']}
+      />
       <Navigation />
       <main>
         <section className="py-24 bg-background">
@@ -37,7 +64,7 @@ const About = () => {
 
               <div>
                 <h2 className="text-xl font-semibold mb-3">Where we are</h2>
-                <p className="text-muted-foreground">We’re currently live in the Detroit Metro Area with more cities on the roadmap.</p>
+                <p className="text-muted-foreground">We're currently live in the Detroit Metro Area with more cities on the roadmap.</p>
               </div>
             </div>
           </div>
