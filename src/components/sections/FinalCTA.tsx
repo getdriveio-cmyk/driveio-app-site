@@ -1,120 +1,113 @@
 import { Button } from '@/components/ui/button';
-import { ExternalLink, QrCode } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight, Star, Shield, Clock } from 'lucide-react';
+import { trackingEvents } from '@/lib/tracking';
 
 export const FinalCTA = () => {
-  const [showQR, setShowQR] = useState(false);
+  const handlePrimaryCTAClick = () => {
+    trackingEvents.finalCTAClick('primary');
+    window.open('https://apps.apple.com/app/driveio', '_blank');
+  };
+
+  const handleSecondaryCTAClick = () => {
+    trackingEvents.finalCTAClick('secondary');
+    window.open('https://testflight.apple.com/join/driveio', '_blank');
+  };
+
+  const handleLearnMoreClick = (section: string) => {
+    trackingEvents.learnMoreClick(section);
+  };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        {/* Header */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Ready to roll?
+    <section className="py-24 bg-gradient-to-br from-primary-100 via-primary-50 to-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Main CTA Section */}
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-800 mb-6 leading-tight">
+            Ready to Start
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
+              Driving Today?
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of Detroit drivers who trust DriveIO for their car sharing needs.
+          
+          <p className="text-xl md:text-2xl text-primary-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Join thousands of drivers who trust DriveIO for safe, reliable car sharing. 
+            Download now and experience the future of transportation.
           </p>
-        </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <Button 
-            size="lg" 
-            className="h-16 px-10 text-lg bg-primary hover:bg-primary-hover shadow-xl hover:shadow-2xl transition-all duration-smooth"
-            onClick={() => window.open('https://apps.apple.com/app/driveio', '_blank', 'noopener,noreferrer')}
-          >
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col items-start">
-                <span className="text-sm opacity-90">Download on the</span>
-                <span className="font-bold text-lg">App Store</span>
-              </div>
-              <ExternalLink className="h-5 w-5" />
-            </div>
-          </Button>
-
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="h-16 px-10 text-lg border-2 border-primary/30 hover:bg-primary/5 transition-all duration-smooth"
-            onClick={() => window.open('https://testflight.apple.com/join/driveio', '_blank', 'noopener,noreferrer')}
-          >
-            <div className="flex items-center gap-3">
-              <span className="font-semibold">Join TestFlight Beta</span>
-              <ExternalLink className="h-3 w-3" />
-            </div>
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="lg"
-            className="h-16 px-8 hover:bg-muted/50"
-            onClick={() => setShowQR(!showQR)}
-          >
-            <div className="flex flex-col items-center gap-1">
-              <QrCode className="h-6 w-6" />
-              <span className="text-xs">QR Code</span>
-            </div>
-          </Button>
-        </div>
-
-        {/* QR Code Modal */}
-        {showQR && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm" onClick={() => setShowQR(false)}>
-            <div className="bg-card p-8 rounded-xl shadow-2xl border border-border max-w-sm mx-4">
-              <div className="w-48 h-48 bg-muted rounded-xl flex items-center justify-center mb-6 mx-auto">
-                <QrCode className="h-24 w-24 text-muted-foreground" />
-              </div>
-              <div className="text-center">
-                <h3 className="font-semibold text-foreground mb-2">Scan to Download</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Point your camera at this QR code to download DriveIO
-                </p>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => navigator.clipboard.writeText('https://apps.apple.com/app/driveio')}
-                >
-                  Copy Link
-                </Button>
-              </div>
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <Button
+              size="lg"
+              onClick={handlePrimaryCTAClick}
+              className="h-16 px-10 text-lg bg-gradient-driveio-button hover:bg-primary-700 shadow-xl hover:shadow-2xl transition-all duration-smooth text-white"
+            >
+              Download iOS App
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={handleSecondaryCTAClick}
+              className="h-16 px-10 text-lg border-2 border-primary-300 text-primary-700 hover:bg-primary-50 transition-all duration-smooth"
+            >
+              Join TestFlight Beta
+            </Button>
           </div>
-        )}
-
-        {/* Legal Links */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-          <a 
-            href="/privacy"
-            className="hover:text-primary transition-colors duration-fast"
-          >
-            Privacy Policy
-          </a>
-          <span>•</span>
-          <a 
-            href="/terms"
-            className="hover:text-primary transition-colors duration-fast"
-          >
-            Terms of Service
-          </a>
-          <span>•</span>
-          <a 
-            href="mailto:support@driveio.app"
-            className="hover:text-primary transition-colors duration-fast"
-          >
-            Contact Support
-          </a>
         </div>
 
-        {/* Launch Info */}
-        <div className="mt-8 p-6 bg-accent-light rounded-xl border border-accent/20">
-          <p className="text-foreground font-medium">
-            🚗 Now live in Detroit Metro Area
-          </p>
-          <p className="text-sm text-muted-foreground mt-1">
-            More cities coming soon. Follow us for updates.
+        {/* Trust Indicators */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star className="h-8 w-8 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary-800 mb-2">4.9★ Rating</h3>
+            <p className="text-primary-700">Top-rated on the App Store with thousands of 5-star reviews</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="h-8 w-8 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary-800 mb-2">100% Verified</h3>
+            <p className="text-primary-700">Every driver and vehicle is thoroughly vetted for your safety</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock className="h-8 w-8 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary-800 mb-2">24/7 Support</h3>
+            <p className="text-primary-700">Round-the-clock customer service whenever you need help</p>
+          </div>
+        </div>
+
+        {/* Additional Links */}
+        <div className="space-y-4">
+          <p className="text-primary-700">
+            Want to learn more? Check out our{' '}
+            <button 
+              onClick={() => handleLearnMoreClick('features')}
+              className="hover:text-primary transition-colors duration-fast underline"
+            >
+              features
+            </button>
+            ,{' '}
+            <button 
+              onClick={() => handleLearnMoreClick('safety')}
+              className="hover:text-primary transition-colors duration-fast underline"
+            >
+              safety measures
+            </button>
+            , and{' '}
+            <button 
+              onClick={() => handleLearnMoreClick('pricing')}
+              className="hover:text-primary transition-colors duration-fast underline"
+            >
+              transparent pricing
+            </button>
+            .
           </p>
         </div>
       </div>

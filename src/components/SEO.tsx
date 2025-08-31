@@ -1,116 +1,144 @@
 import { Helmet } from 'react-helmet-async';
+import { colors } from '@/lib/theme';
 
-interface SEOProps {
-  title: string;
-  description: string;
-  canonical?: string;
-  ogImage?: string;
-  ogType?: 'website' | 'article';
-  twitterCard?: 'summary' | 'summary_large_image';
-  structuredData?: object;
+export interface SEOProps {
+  title?: string;
+  description?: string;
   keywords?: string[];
-  author?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
-  section?: string;
-  tags?: string[];
-  noindex?: boolean;
-  nofollow?: boolean;
+  canonical?: string;
+  structuredData?: object;
+  ogImage?: string;
+  ogType?: string;
+  twitterCard?: string;
+  noIndex?: boolean;
 }
 
 export const SEO = ({
-  title,
-  description,
-  canonical = 'https://driveio.app',
-  ogImage = 'https://driveio.app/og-image.svg',
-  ogType = 'website',
-  twitterCard = 'summary_large_image',
-  structuredData,
+  title = "DriveIO - Trust-First Car Sharing Platform",
+  description = "Book local cars in minutes with DriveIO. Verified drivers, transparent pricing, no hidden fees. Available in Detroit Metro Area.",
   keywords = [
     // Primary Keywords (High Volume)
-    'car rental near me', 'rent a car', 'car sharing app', 'rental car app', 'car hire',
-    // Secondary Keywords (Medium Volume)  
-    'hourly car rental', 'daily car rental', 'weekend car rental', 'airport car rental', 'business car rental',
-    // Long-tail Keywords (High Intent)
-    'rent car for day trip', 'car sharing app for business travel', 'rental car app with insurance',
-    'car rental app no deposit', 'rent car hourly', 'trust-first car sharing', 'verified driver car rental',
-    // Local Keywords (Detroit Focus)
-    'Detroit car rental', 'car rental Detroit airport', 'Detroit car sharing', 'Michigan car rental app',
-    'Detroit metro car rental', 'car rental Michigan', 'Detroit area car rental',
+    "car sharing",
+    "car rental",
+    "rent a car",
+    "car hire",
+    "local car rental",
+    "hourly car rental",
+    "daily car rental",
+    "weekend car rental",
+    "airport car rental",
+    "Detroit car rental",
+    "Michigan car rental",
+    
+    // Secondary Keywords (Medium Volume)
+    "peer to peer car sharing",
+    "car sharing app",
+    "rent car near me",
+    "cheap car rental",
+    "affordable car rental",
+    "car rental deals",
+    "car rental discounts",
+    "last minute car rental",
+    "same day car rental",
+    "car rental without credit card",
+    
     // Brand Keywords
-    'DriveIO', 'DriveIO app', 'DriveIO car sharing', 'DriveIO rental'
+    "DriveIO",
+    "DriveIO car sharing",
+    "DriveIO app",
+    "DriveIO Detroit",
+    "DriveIO Michigan",
+    
+    // Long-tail Keywords
+    "how to rent a car for a day",
+    "best car rental app",
+    "car sharing vs car rental",
+    "is car sharing cheaper than renting",
+    "car rental insurance coverage",
+    "car rental requirements",
+    "car rental age restrictions",
+    "car rental with debit card",
+    "car rental pickup and return",
+    "car rental cancellation policy"
   ],
-  author = 'DriveIO',
-  publishedTime,
-  modifiedTime,
-  section,
-  tags = [],
-  noindex = false,
-  nofollow = false
+  canonical,
+  structuredData,
+  ogImage = "/og-image.svg",
+  ogType = "website",
+  twitterCard = "summary_large_image",
+  noIndex = false
 }: SEOProps) => {
-  const fullTitle = title.includes('DriveIO') ? title : `${title} — DriveIO`;
-  
+  const fullTitle = title === "DriveIO - Trust-First Car Sharing Platform" 
+    ? title 
+    : `${title} | DriveIO`;
+
+  const fullDescription = description.length > 160 
+    ? description.substring(0, 157) + "..." 
+    : description;
+
+  const fullCanonical = canonical 
+    ? `https://driveio.com${canonical}` 
+    : "https://driveio.com";
+
+  const fullOgImage = ogImage.startsWith('http') 
+    ? ogImage 
+    : `https://driveio.com${ogImage}`;
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={fullDescription} />
       <meta name="keywords" content={keywords.join(', ')} />
-      <meta name="author" content={author} />
-      <link rel="canonical" href={canonical} />
-      
-      {/* Robots Meta */}
-      <meta name="robots" content={`${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`} />
-      <meta name="googlebot" content={`${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`} />
-      
-      {/* Language and Region */}
+      <meta name="author" content="DriveIO" />
+      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
       <meta name="language" content="en" />
+      <meta name="revisit-after" content="7 days" />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={fullCanonical} />
+      
+      {/* Open Graph Meta Tags */}
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={fullDescription} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={fullCanonical} />
+      <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="DriveIO" />
+      <meta property="og:locale" content="en_US" />
+      
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content={twitterCard} />
+      <meta name="twitter:site" content="@GetDriveIO" />
+      <meta name="twitter:creator" content="@GetDriveIO" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content={fullOgImage} />
+      
+      {/* Additional Meta Tags */}
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content={colors.primary[600]} />
+      <meta name="msapplication-TileColor" content={colors.primary[600]} />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="apple-mobile-web-app-title" content="DriveIO" />
+      
+      {/* Geographic Meta Tags */}
       <meta name="geo.region" content="US-MI" />
       <meta name="geo.placename" content="Detroit" />
       <meta name="geo.position" content="42.3314;-83.0458" />
       <meta name="ICBM" content="42.3314, -83.0458" />
       
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={`${fullTitle} - ${description}`} />
-      <meta property="og:site_name" content="DriveIO" />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:locale:alternate" content="en_CA" />
-      
-      {/* Twitter Cards */}
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:site" content="@driveio_app" />
-      <meta name="twitter:creator" content="@driveio_app" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={`${fullTitle} - ${description}`} />
-      
-      {/* LinkedIn */}
-      <meta property="og:image:secure_url" content={ogImage} />
-      <meta property="og:image:type" content="image/svg+xml" />
-      
-      {/* Article-specific meta tags */}
-      {ogType === 'article' && publishedTime && (
-        <meta property="article:published_time" content={publishedTime} />
-      )}
-      {ogType === 'article' && modifiedTime && (
-        <meta property="article:modified_time" content={modifiedTime} />
-      )}
-      {ogType === 'article' && section && (
-        <meta property="article:section" content={section} />
-      )}
-      {ogType === 'article' && tags.length > 0 && (
-        tags.map((tag, index) => (
-          <meta key={index} property="article:tag" content={tag} />
-        ))
-      )}
+      {/* Business Meta Tags */}
+      <meta name="business:contact_data:street_address" content="Detroit Metro Area" />
+      <meta name="business:contact_data:locality" content="Detroit" />
+      <meta name="business:contact_data:region" content="Michigan" />
+      <meta name="business:contact_data:postal_code" content="48201" />
+      <meta name="business:contact_data:country_name" content="United States" />
+      <meta name="business:contact_data:phone_number" content="+1-313-DRIVEIO" />
+      <meta name="business:contact_data:email" content="hello@driveio.com" />
       
       {/* Structured Data */}
       {structuredData && (
@@ -119,24 +147,36 @@ export const SEO = ({
         </script>
       )}
       
-      {/* Additional SEO */}
-      <meta name="theme-color" content="#00CED1" />
-      <meta name="msapplication-TileColor" content="#00CED1" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="DriveIO" />
-      <meta name="application-name" content="DriveIO" />
-      <meta name="msapplication-config" content="/browserconfig.xml" />
-      
-      {/* Performance and Security */}
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="referrer" content="strict-origin-when-cross-origin" />
-      
-      {/* Preconnect for Performance */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-      <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+      {/* Default Structured Data for Organization */}
+      {!structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DriveIO",
+            "url": "https://driveio.com",
+            "logo": "https://driveio.com/driveio-logo.png",
+            "description": "Trust-first car sharing platform connecting drivers with verified vehicles in Detroit Metro Area.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Detroit",
+              "addressRegion": "MI",
+              "addressCountry": "US"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-313-DRIVEIO",
+              "contactType": "customer service",
+              "email": "hello@driveio.com"
+            },
+            "sameAs": [
+              "https://x.com/GetDriveIO",
+              "https://www.instagram.com/getdriveio/",
+              "https://linkedin.com/company/driveio"
+            ]
+          })}
+        </script>
+      )}
     </Helmet>
   );
 };

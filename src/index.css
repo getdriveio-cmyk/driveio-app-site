@@ -6,6 +6,58 @@
 
 @layer base {
   :root {
+    /* ============================================================================
+     * DRIVEIO DESIGN SYSTEM COLORS
+     * ============================================================================ */
+    
+    /* Primary Colors - Deep blue foundation */
+    --color-primary-900: #040B25;
+    --color-primary-800: #031A5C;
+    --color-primary-700: #012687;
+    --color-primary-600: #1F3D7D;
+    --color-primary-400: #4A71A2;
+    --color-primary-300: #6B98BC;
+    --color-primary-200: #A6D3F2;
+    --color-primary-100: #C5DFF1;
+    
+    /* Neutral Colors - Text and borders */
+    --color-neutral-600: #546E82;
+    --color-neutral-300: #C6CDD4;
+    
+    /* Surface Colors */
+    --color-surface: #FFFFFF;
+    --color-background: #D4E9F6;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(180deg, #031A5C 0%, #1F3D7D 60%, #012687 100%);
+    --gradient-button: linear-gradient(180deg, #1F3D7D 0%, #4A71A2 100%);
+    
+    /* Semantic Text Colors */
+    --color-text-primary: #031A5C;
+    --color-text-secondary: #546E82;
+    --color-text-on-dark: #FFFFFF;
+    --color-text-on-light: #031A5C;
+    
+    /* Semantic Background Colors */
+    --color-bg-primary: #1F3D7D;
+    --color-bg-secondary: #C5DFF1;
+    --color-bg-muted: #C5DFF1;
+    
+    /* Semantic Border Colors */
+    --color-border-primary: #6B98BC;
+    --color-border-secondary: #C6CDD4;
+    --color-border-muted: #C5DFF1;
+    
+    /* Semantic Interactive Colors */
+    --color-interactive-primary: #1F3D7D;
+    --color-interactive-primary-hover: #012687;
+    --color-interactive-secondary: #C5DFF1;
+    --color-interactive-secondary-hover: #A6D3F2;
+    
+    /* ============================================================================
+     * LEGACY HSL VARIABLES (for backward compatibility)
+     * ============================================================================ */
+    
     /* Base colors - Clean white/light gray foundation */
     --background: 0 0% 100%;
     --foreground: 224 15% 20%;
@@ -17,10 +69,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 15% 20%;
 
-    /* Primary - sampled teal from logo */
-    --primary: 180 87% 40%;
+    /* Primary - mapped to new DriveIO primary-600 */
+    --primary: 217 60% 30%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 180 87% 35%;
+    --primary-hover: 217 60% 25%;
 
     /* Secondary - Light blue for subtle actions */
     --secondary: 217 32% 96%;
@@ -30,10 +82,10 @@
     --muted: 220 13% 96%;
     --muted-foreground: 220 9% 46%;
 
-    /* Accent - cyan-teal highlight from logo edge glow */
-    --accent: 174 66% 51%;
+    /* Accent - mapped to new DriveIO primary-400 */
+    --accent: 217 40% 50%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 174 44% 94%;
+    --accent-light: 217 40% 94%;
 
     /* Success/trust indicators */
     --success: 142 76% 36%;
@@ -47,13 +99,13 @@
     /* Border and inputs */
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 180 87% 40%;
+    --ring: 217 60% 30%;
 
     /* Radius for modern rounded corners */
     --radius: 0.75rem;
 
-    /* Gradients for visual appeal */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    /* Legacy gradients mapped to new system */
+    --gradient-hero: var(--gradient-primary);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 99%));
 
@@ -100,139 +152,131 @@
     --card: 224 15% 10%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 224 15% 8%;
+    --popover: 224 15% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 180 87% 55%;
+    /* Primary - mapped to new DriveIO primary-400 for dark mode */
+    --primary: 217 40% 50%;
     --primary-foreground: 224 15% 8%;
-    --primary-hover: 180 87% 50%;
+    --primary-hover: 217 40% 45%;
 
+    /* Secondary - Darker blue for subtle actions */
     --secondary: 224 15% 15%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 224 15% 12%;
-    --muted-foreground: 220 9% 60%;
+    /* Muted - Darker muted colors */
+    --muted: 224 15% 15%;
+    --muted-foreground: 220 9% 65%;
 
-    --accent: 174 66% 56%;
+    /* Accent - mapped to new DriveIO primary-300 for dark mode */
+    --accent: 217 40% 60%;
     --accent-foreground: 224 15% 8%;
-    --accent-light: 174 44% 15%;
+    --accent-light: 224 15% 20%;
 
-    --success: 142 76% 45%;
+    /* Success/trust indicators - Darker for dark mode */
+    --success: 142 76% 30%;
     --success-foreground: 224 15% 8%;
-    --success-light: 142 50% 15%;
+    --success-light: 224 15% 20%;
 
-    --destructive: 0 84% 65%;
+    /* Status colors - Adjusted for dark mode */
+    --destructive: 0 84% 55%;
     --destructive-foreground: 224 15% 8%;
 
+    /* Border and inputs - Darker for dark mode */
     --border: 224 15% 20%;
-    --input: 224 15% 15%;
-    --ring: 180 87% 55%;
+    --input: 224 15% 20%;
+    --ring: 217 40% 50%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-subtle: linear-gradient(180deg, hsl(224 15% 8%), hsl(224 15% 10%));
-    --gradient-card: linear-gradient(145deg, hsl(224 15% 10%), hsl(224 15% 12%));
+    /* Legacy gradients mapped to new system */
+    --gradient-hero: var(--gradient-primary);
+    --gradient-subtle: linear-gradient(180deg, hsl(224 15% 8%), hsl(224 15% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(224 15% 10%), hsl(224 15% 15%));
 
+    /* Shadows for depth - Darker for dark mode */
     --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.3);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0 10px 25px -3px hsl(0 0% 0% / 0.4);
-    --shadow-xl: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --shadow-lg: 0 10px 25px -3px hsl(0 0% 0% / 0.3);
+    --shadow-xl: 0 25px 50px -12px hsl(0 0% 0% / 0.4);
 
-    --sidebar-background: 224 15% 10%;
+    /* Sidebar colors for dark mode */
+    --sidebar-background: 224 15% 12%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 217 91% 65%;
     --sidebar-primary-foreground: 224 15% 8%;
-    --sidebar-accent: 224 15% 15%;
+    --sidebar-accent: 224 15% 20%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 224 15% 20%;
-    --sidebar-ring: 217 91% 65%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* ============================================================================
+ * DRIVEIO DESIGN SYSTEM UTILITY CLASSES
+ * ============================================================================ */
 
-  body {
-    @apply bg-background text-foreground font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  /* Typography */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
-  }
-
-  /* Smooth scrolling for navigation */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Focus styles for accessibility */
-  *:focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-  }
+@layer utilities {
+  /* Background utilities */
+  .bg-driveio-primary { background-color: var(--color-primary-600); }
+  .bg-driveio-primary-light { background-color: var(--color-primary-100); }
+  .bg-driveio-surface { background-color: var(--color-surface); }
+  .bg-driveio-background { background-color: var(--color-background); }
+  
+  /* Text utilities */
+  .text-driveio-primary { color: var(--color-text-primary); }
+  .text-driveio-secondary { color: var(--color-text-secondary); }
+  .text-driveio-on-dark { color: var(--color-text-on-dark); }
+  .text-driveio-on-light { color: var(--color-text-on-light); }
+  
+  /* Border utilities */
+  .border-driveio-primary { border-color: var(--color-border-primary); }
+  .border-driveio-secondary { border-color: var(--color-border-secondary); }
+  .border-driveio-muted { border-color: var(--color-border-muted); }
+  
+  /* Gradient utilities */
+  .bg-gradient-driveio-primary { background: var(--gradient-primary); }
+  .bg-gradient-driveio-button { background: var(--gradient-button); }
+  
+  /* Interactive state utilities */
+  .hover\:bg-driveio-primary-hover:hover { background-color: var(--color-interactive-primary-hover); }
+  .hover\:bg-driveio-secondary-hover:hover { background-color: var(--color-interactive-secondary-hover); }
 }
+
+/* ============================================================================
+ * COMPONENT STYLES
+ * ============================================================================ */
 
 @layer components {
-  /* Hero section styles */
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-
-  .card-gradient {
-    background: var(--gradient-card);
-  }
-
-  /* Animation utilities */
-  .animate-fade-in {
-    animation: fadeIn var(--transition-slow) ease-out;
-  }
-
-  .animate-slide-up {
-    animation: slideUp var(--transition-slow) ease-out;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn var(--transition-smooth) ease-out;
-  }
-
-  /* Hover effects */
-  .hover-lift {
-    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Glass morphism for navigation */
-  .glass-nav {
-    backdrop-filter: blur(20px);
-    background: hsla(0, 0%, 100%, 0.8);
-    border-bottom: 1px solid hsla(220, 13%, 91%, 0.5);
-  }
-
-  .dark .glass-nav {
-    background: hsla(224, 15%, 8%, 0.8);
-    border-bottom: 1px solid hsla(224, 15%, 20%, 0.5);
-  }
-  
-  /* Hero background utilities */
+  /* Hero section with new gradient */
   .hero-bg {
     background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
   }
   
-  /* Responsive background handling */
-  @media (max-width: 768px) {
-    .hero-bg {
-      background-attachment: scroll;
-    }
+  /* Button styles with new color system */
+  .btn-driveio-primary {
+    background: var(--gradient-button);
+    color: var(--color-text-on-dark);
+    border: none;
+    transition: all var(--transition-smooth);
+  }
+  
+  .btn-driveio-primary:hover {
+    background: var(--color-interactive-primary-hover);
+    transform: translateY(-1px);
+  }
+  
+  .btn-driveio-secondary {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-secondary);
+    transition: all var(--transition-smooth);
+  }
+  
+  .btn-driveio-secondary:hover {
+    background-color: var(--color-interactive-secondary-hover);
+    border-color: var(--color-border-primary);
   }
 }
 

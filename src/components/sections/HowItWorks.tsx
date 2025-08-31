@@ -1,87 +1,120 @@
-import { Search, UserCheck, CreditCard } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Search, Calendar, Car, Star } from 'lucide-react';
+import { trackingEvents } from '@/lib/tracking';
+
+const steps = [
+  {
+    icon: Search,
+    title: 'Find Your Car',
+    description: 'Browse available vehicles in your area with real-time availability and pricing.',
+    step: '01'
+  },
+  {
+    icon: Calendar,
+    title: 'Book & Reserve',
+    description: 'Select your dates, review pricing, and secure your reservation instantly.',
+    step: '02'
+  },
+  {
+    icon: Car,
+    title: 'Pick Up & Drive',
+    description: 'Meet your verified driver at the agreed location and enjoy your ride.',
+    step: '03'
+  },
+  {
+    icon: Star,
+    title: 'Rate & Review',
+    description: 'Share your experience and help maintain our community standards.',
+    step: '04'
+  }
+];
 
 export const HowItWorks = () => {
-  const steps = [
-    {
-      step: 1,
-      icon: Search,
-      title: 'Search dates & location',
-      description: 'Browse available cars in your area for your desired dates and times.'
-    },
-    {
-      step: 2,
-      icon: UserCheck,
-      title: 'Pick a car & verify ID',
-      description: 'Choose your perfect ride and complete quick ID and license verification.'
-    },
-    {
-      step: 3,
-      icon: CreditCard,
-      title: 'Checkout with Apple Pay',
-      description: 'Secure payment with Apple Pay or card, then you\'re ready to drive!'
-    }
-  ];
+  const handleStepClick = (stepNumber: string) => {
+    trackingEvents.howItWorksStepClick(stepNumber);
+  };
 
   return (
-    <section id="how-it-works" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
+    <section className="py-24 bg-gradient-to-br from-primary-50 to-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            How it works
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-6">
+            How DriveIO
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
+              Works
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get on the road in three simple steps. It's that easy.
+          <p className="text-xl text-primary-700 max-w-3xl mx-auto leading-relaxed">
+            Getting started with DriveIO is simple. In just four easy steps, you'll be on your way 
+            to safe, reliable car sharing.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {steps.map((stepItem, index) => (
-            <div key={index} className="relative">
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent transform translate-x-6 z-0" />
-              )}
-              
-              {/* Step Card */}
-              <Card className="relative z-10 hover-lift bg-card-gradient border-border/50 shadow-sm hover:shadow-md transition-all duration-smooth">
-                <CardContent className="p-8 text-center">
-                  {/* Step Number */}
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">
-                    {stepItem.step}
-                  </div>
+        <div className="relative">
+          {/* Connection Line */}
+          <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-transparent transform translate-x-6 z-0" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {steps.map((step, index) => (
+              <div
+                key={step.step}
+                className="relative group cursor-pointer"
+                onClick={() => handleStepClick(step.step)}
+              >
+                {/* Step Number */}
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg">
+                  {step.step}
+                </div>
 
-                  {/* Icon */}
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <stepItem.icon className="h-8 w-8 text-accent" />
-                  </div>
+                {/* Icon */}
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors duration-300">
+                  <step.icon className="h-8 w-8 text-primary-600" />
+                </div>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {stepItem.title}
+                {/* Content */}
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold text-primary-800 mb-4">
+                    {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {stepItem.description}
+                  <p className="text-primary-700 leading-relaxed">
+                    {step.description}
                   </p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+                </div>
+
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-primary-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* Trust Badge */}
         <div className="mt-16 text-center">
-          <div className="inline-block p-6 bg-primary/5 rounded-2xl border border-primary/20">
-            <p className="text-lg text-foreground mb-4">
-              <span className="font-semibold">Ready in under 5 minutes.</span> Most verifications are instant.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              New to car sharing? Our support team is here to help every step of the way.
+          <div className="inline-block p-6 bg-primary-50 rounded-2xl border border-primary-200">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="w-6 h-6 bg-success rounded-full flex items-center justify-center">
+                <span className="text-white text-sm">✓</span>
+              </div>
+              <span className="text-lg font-semibold text-primary-800">Trust & Safety First</span>
+            </div>
+            <p className="text-primary-700 text-sm">
+              Every step of the process is designed with your safety and security in mind
             </p>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-lg text-primary-700 mb-6">
+            Ready to get started?
+          </p>
+          <button
+            onClick={() => trackingEvents.ctaClick('how-it-works-download')}
+            className="px-8 py-3 bg-gradient-driveio-button hover:bg-primary-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Download & Start Booking
+          </button>
         </div>
       </div>
     </section>

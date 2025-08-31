@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { generateTailwindColors } from "./src/lib/theme";
 
 export default {
 	darkMode: ["class"],
@@ -19,6 +20,10 @@ export default {
 		},
 		extend: {
 			colors: {
+				// DriveIO Design System Colors
+				...generateTailwindColors(),
+				
+				// Legacy HSL variables for backward compatibility
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

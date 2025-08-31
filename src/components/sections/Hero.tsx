@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import appScreen1 from '@/assets/app-screen-1.png';
 import { trackingEvents } from '@/lib/tracking';
+import { colors } from '@/lib/theme';
 
 export const Hero = () => {
   const handleCTAClick = () => {
@@ -43,7 +44,7 @@ export const Hero = () => {
         {/* Main Headline - Following UX best practices: clear, concise, 5-7 words */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
           Book Local Cars in
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-primary-300">
             Minutes
           </span>
         </h1>
@@ -58,7 +59,7 @@ export const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-600 hover:to-teal-600 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-driveio-button hover:bg-primary-700 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-primary-600/25 transition-all duration-300 transform hover:scale-105"
             onClick={handleCTAClick}
           >
             Start Booking Now
@@ -78,7 +79,7 @@ export const Hero = () => {
           {/* Phone Mockup */}
           <div className="relative mx-auto w-64 h-96">
             {/* Phone Frame */}
-            <div className="absolute inset-0 bg-gray-900 rounded-[3rem] shadow-2xl border-8 border-gray-800">
+            <div className="absolute inset-0 bg-primary-900 rounded-[3rem] shadow-2xl border-8 border-primary-800">
               {/* Screen */}
               <div className="absolute inset-2 bg-white rounded-[2rem] overflow-hidden">
                 <img 
@@ -91,7 +92,7 @@ export const Hero = () => {
               </div>
               
               {/* Home Button */}
-              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gray-600 rounded-full"></div>
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-neutral-600 rounded-full"></div>
             </div>
           </div>
 
@@ -99,7 +100,7 @@ export const Hero = () => {
           <div className="mt-8">
             <Button 
               onClick={handleDownloadClick}
-              className="bg-black/80 backdrop-blur-sm text-white hover:bg-black/90 border border-white/20 px-6 py-3 font-medium shadow-xl transition-all duration-300"
+              className="bg-primary-800/80 backdrop-blur-sm text-white hover:bg-primary-800/90 border border-white/20 px-6 py-3 font-medium shadow-xl transition-all duration-300"
             >
               📱 Download iOS App
             </Button>
